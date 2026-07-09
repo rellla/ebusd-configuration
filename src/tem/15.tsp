@@ -2267,7 +2267,7 @@ namespace _15 {
     model Set_Zirkulationspumpe {
       /** Mit der Einstellung kann die Zirkulationspumpenfunktion aktiviert werden */
       @values(Values_status_17)
-      zirkstatus: status;
+      status: status;
     }
 
     /** Pumpenanforderung Warmwasserladung 05-007 */
@@ -2427,7 +2427,7 @@ namespace _15 {
     @ext(0x92, 0, 0xe)
     model Set_Temp_soll {
       /** Mit dieser Einstellung wird der Warmwasser Sollwert eingestellt */
-      ww_temp: temp10;
+      temp: temp10;
     }
 
     /** Maximale Warmwasser Sollwertbegrenzung 05-057 */
