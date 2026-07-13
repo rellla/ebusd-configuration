@@ -412,7 +412,7 @@ namespace _15 {
     /** Ebene Einsteller 04-043 */
     @inherit(r)
     @ext(0x4, 0xab, 0, 0x4a)
-    model Parameter_level {
+    model GlobalAccessLevel {
       parameters: parameter1;
 
       /** Abfrage des aktuellen Zugangslevels für die Einsteller */
@@ -423,7 +423,7 @@ namespace _15 {
     /** Globales Passwort setzen (256) 04-042 */
     @inherit(w)
     @ext(0x4, 0xaa, 0, 0x40)
-    model Set_Global_passwort {
+    model GlobalPasswordWrite {
       /** 256 */
       password: UIN;
     }
@@ -437,7 +437,7 @@ namespace _15 {
     /** Vorlauftemperatur Wärmeerzeuger 00-007 */
     @inherit(r)
     @ext(0, 0x87, 0, 0x42)
-    model WE_Vl_temp_ist_ping {
+    model EhpFlowTempActualDisplay {
       parameters: parameter_temp10;
 
       /** Wärmeerzeuger Vorlauftemperatur */
@@ -447,7 +447,7 @@ namespace _15 {
     /** Rücklauftemperatur Wärmeerzeuger 00-008 */
     @inherit(r)
     @ext(0, 0x88, 0, 0x42)
-    model WE_Rl_temp_ist_ping {
+    model EhpReturnTempActualDisplay {
       parameters: parameter_temp10;
 
       /** Wärmeerzeuger Rücklauftemperatur */
@@ -457,7 +457,7 @@ namespace _15 {
     /** Wärmequelle Austrittstemperatur 00-070 */
     @inherit(r)
     @ext(0, 0xc6, 0, 0x42)
-    model WE_Wq_temp_out_ping {
+    model EhpSourceTempOutletDisplay {
       parameters: parameter_temp10;
 
       /** Wärmequellen Austrittstemperatur vom Verdampfer */
@@ -467,7 +467,7 @@ namespace _15 {
     /** Wärmequelle Eintrittstemperatur 00-071 */
     @inherit(r)
     @ext(0, 0xc7, 0, 0x42)
-    model WE_Wq_temp_in_ping {
+    model EhpSourceTempInletDisplay {
       parameters: parameter_temp10;
 
       /** Wärmequellen Eintrittstemperatur zum Verdampfer */
@@ -477,7 +477,7 @@ namespace _15 {
     /** Status 02-053 */
     @inherit(r)
     @ext(0x2, 0xb5, 0, 0x42)
-    model WE_Status_ping {
+    model EhpOperatingStateDisplay {
       parameters: parameter1;
 
       /** WP Status */
@@ -488,7 +488,7 @@ namespace _15 {
     /** Betriebswahl Wärmeerzeuger 09-075 */
     @inherit(r)
     @ext(0x9, 0xcb, 0, 0x42)
-    model WE_Betriebswahl_ping {
+    model EhpOperatingModeDisplay {
       parameters: parameter1;
 
       /** Betriebswahl Wärmeerzeuger */
@@ -499,7 +499,7 @@ namespace _15 {
     /** Uhrzeit 02-072 */
     @inherit(r)
     @ext(0x2, 0xc8, 0, 0x42)
-    model WE_Time {
+    model EhpTime {
       parameters: parameter_time;
 
       /** Uhrzeit */
@@ -509,7 +509,7 @@ namespace _15 {
     /** Aussentemperatur 00-000 */
     @inherit(r)
     @ext(0, 0x80, 0, 0x42)
-    model WE_At {
+    model EhpOutsideTemp {
       parameters: parameter_temp10;
 
       /** Aussentemperatur */
@@ -519,7 +519,7 @@ namespace _15 {
     /** Wochentag 02-073 */
     @inherit(r)
     @ext(0x2, 0xc9, 0, 0x42)
-    model WE_Wd {
+    model EhpWeekday {
       parameters: parameter_wd;
 
       /** Wochentag */
@@ -535,7 +535,7 @@ namespace _15 {
     /** Vorlauftemperatur Wärmeerzeuger 00-007 */
     @inherit(r)
     @ext(0x80, 0, 0x2)
-    model WE_Vl_temp_ist {
+    model EhpFlowTempActual {
       parameters: parameter_temp10;
 
       /** Wärmeerzeuger Vorlauftemperatur */
@@ -545,7 +545,7 @@ namespace _15 {
     /** Vorlauftemperatur Sollwert Anforderung Wärmeerzeuger 01-007 */
     @inherit(r)
     @ext(0x81, 0, 0x2)
-    model WE_Vl_temp_soll {
+    model EhpFlowTempSetpoint {
       parameters: parameter_temp10;
 
       /** Berechneter Sollwert für die Wärmeerzeuger Vorlauftemperatur */
@@ -555,7 +555,7 @@ namespace _15 {
     /** Rücklauftemperatur Wärmeerzeuger 00-008 */
     @inherit(r)
     @ext(0x82, 0, 0x2)
-    model WE_Rl_temp_ist {
+    model EhpReturnTempActual {
       parameters: parameter_temp10;
 
       /** Wärmeerzeuger Rücklauftemperatur */
@@ -565,7 +565,7 @@ namespace _15 {
     /** Wärmequelle Austrittstemperatur 00-070 */
     @inherit(r)
     @ext(0x83, 0, 0x2)
-    model WE_Wq_temp_out {
+    model EhpSourceTempOutlet {
       parameters: parameter_temp10;
 
       /** Wärmequellen Austrittstemperatur vom Verdampfer */
@@ -575,7 +575,7 @@ namespace _15 {
     /** Wärmequelle Eintrittstemperatur 00-071 */
     @inherit(r)
     @ext(0x84, 0, 0x2)
-    model WE_Wq_temp_in {
+    model EhpSourceTempInlet {
       parameters: parameter_temp10;
 
       /** Wärmequellen Eintrittstemperatur zum Verdampfer */
@@ -585,7 +585,7 @@ namespace _15 {
     /** Heissgastemperatur 00-072 */
     @inherit(r)
     @ext(0x85, 0, 0x2)
-    model WE_Temp_hg {
+    model EhpHotGasTemp {
       parameters: parameter_temp10;
 
       /** Heissgastemperatur im Kältekreis */
@@ -595,7 +595,7 @@ namespace _15 {
     /** Status 02-053 */
     @inherit(r)
     @ext(0x86, 0, 0x2)
-    model WE_Status {
+    model EhpOperatingState {
       parameters: parameter1;
 
       /** WP Status */
@@ -606,7 +606,7 @@ namespace _15 {
     /** Schaltzyklen 02-080 */
     @inherit(r)
     @ext(0x87, 0, 0x2)
-    model Sz_1 {
+    model EhpSwitchingCyles1 {
       parameters: parameter2;
 
       /** Einschaltzyklen des Kompressors */
@@ -616,7 +616,7 @@ namespace _15 {
     /** Betriebsstunden 02-081 */
     @inherit(r)
     @ext(0x88, 0, 0x2)
-    model Bs_1 {
+    model EhpOperatingHours1 {
       parameters: parameter2;
 
       /** Betriebsstunden des Kompressors */
@@ -626,7 +626,7 @@ namespace _15 {
     /** Betriebsstunden 2. Stufe 02-082 */
     @inherit(r)
     @ext(0x89, 0, 0x2)
-    model Bs_2 {
+    model EhpOperatingHours2 {
       parameters: parameter2;
 
       /** Betriebsstunden des Kompressors 2te Stufe */
@@ -636,7 +636,7 @@ namespace _15 {
     /** Schaltzyklen 2. Stufe 02-083 */
     @inherit(r)
     @ext(0x8a, 0, 0x2)
-    model Sz_2 {
+    model EhpSwitchingCyles2 {
       parameters: parameter2;
 
       /** Einschaltzyklen des Kompressors 2te Stufe */
@@ -646,7 +646,7 @@ namespace _15 {
     /** Vorlauftemperatur separate WW Energiemessung 21-004 */
     @inherit(r)
     @ext(0x8b, 0, 0x2)
-    model Vl_temp_ww {
+    model EhpHwChargingFlowTemp {
       parameters: parameter_temp10;
 
       /** Vorlauftemperatur für die separate Warmwasser Ladeenergiemessung */
@@ -665,12 +665,12 @@ namespace _15 {
     @base(0x6, 0x23, 0x69)
     model w {}
   }
-  @condition(Globals.Parameter_level.status, "'User_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'User_Level'")
   namespace Wp_param.userlevel {
     /** Wärmeerzeuger Typ 09-007 */
     @inherit(r)
     @ext(0x80, 0, 0x2)
-    model Typ {
+    model EhpType {
       parameters: parameter1;
 
       /** Wärmeerzeuger Typ */
@@ -681,7 +681,7 @@ namespace _15 {
     /** Wärmeerzeuger Typ 09-007 */
     @inherit(w)
     @ext(0x80, 0, 0x2)
-    model Set_Typ {
+    model EhpTypeWrite {
       /** Wärmeerzeuger Typ */
       @values(Values_status_4)
       status: status;
@@ -690,7 +690,7 @@ namespace _15 {
     /** Betriebswahl Wärmeerzeuger 09-075 */
     @inherit(r)
     @ext(0x81, 0, 0x2)
-    model WE_Betriebswahl {
+    model EhpOperatingMode {
       parameters: parameter1;
 
       /** Betriebswahl Wärmeerzeuger */
@@ -701,7 +701,7 @@ namespace _15 {
     /** Betriebswahl Wärmeerzeuger 09-075 */
     @inherit(w)
     @ext(0x81, 0, 0x2)
-    model Set_WE_Betriebswahl {
+    model EhpOperatingModeWrite {
       /** Betriebswahl Wärmeerzeuger */
       @values(Values_status_5)
       status: status;
@@ -710,7 +710,7 @@ namespace _15 {
     /** Applikationstyp Wärmepumpe 15-006 */
     @inherit(r)
     @ext(0x82, 0, 0x2)
-    model WE_Applikationstyp {
+    model EhpApplicationType {
       parameters: parameter1;
 
       /** Damit kann ein vordefinierter Parametersatz für die Wärmepumpenfunktion geladen werden */
@@ -721,18 +721,18 @@ namespace _15 {
     /** Applikationstyp Wärmepumpe 15-006 */
     @inherit(w)
     @ext(0x82, 0, 0x2)
-    model Set_WE_Applikationstyp {
+    model EhpApplicationTypeWrite {
       /** Damit kann ein vordefinierter Parametersatz für die Wärmepumpenfunktion geladen werden */
       @values(Values_status_6)
       status: status;
     }
   }
-  @condition(Globals.Parameter_level.status, "'Expert_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'Expert_Level'")
   namespace Wp_param.expertlevel {
     /** eBUS Wärmeerzeuger Adresse 04-027 */
     @inherit(r)
     @ext(0x80, 0, 0x2)
-    model Ebus_adresse {
+    model EhpEbusAddress {
       parameters: parameter1;
 
       /** Mit diesem Einsteller kann eine Feuerungsautomat in die Wäremerzeugerfunktion eingebunden werden. */
@@ -743,7 +743,7 @@ namespace _15 {
     /** eBUS Wärmeerzeuger Adresse 04-027 */
     @inherit(w)
     @ext(0x80, 0, 0x2)
-    model Set_Ebus_adresse {
+    model EhpEbusAddressWrite {
       /** Mit diesem Einsteller kann eine Feuerungsautomat in die Wäremerzeugerfunktion eingebunden werden. */
       @values(Values_status_7)
       status: status;
@@ -752,7 +752,7 @@ namespace _15 {
     /** Nachlaufzeit Wärmeerzeuger Pumpe 09-000 */
     @inherit(r)
     @ext(0x81, 0, 0x2)
-    model WE_Nachlauf_pumpe {
+    model EhpOverrunTimePump {
       parameters: parameter1;
 
       /** Die Wärmeerzeugerpumpe lbiebt nach Abschalten der Wärmeerzeugeranforderung für die hier eingestellte Nachlaufzeit in Betrieb. */
@@ -764,7 +764,7 @@ namespace _15 {
     /** Nachlaufzeit Wärmeerzeuger Pumpe 09-000 */
     @inherit(w)
     @ext(0x81, 0, 0x2)
-    model Set_WE_Nachlauf_pumpe {
+    model EhpOverrunTimePumpWrite {
       /** Die Wärmeerzeugerpumpe lbiebt nach Abschalten der Wärmeerzeugeranforderung für die hier eingestellte Nachlaufzeit in Betrieb. */
       @unit("min")
       @divisor(10)
@@ -774,7 +774,7 @@ namespace _15 {
     /** Einschaltverzögerung Wärmeerzeuger 09-004 */
     @inherit(r)
     @ext(0x82, 0, 0x2)
-    model Einschaltverzoegerung {
+    model EhpStartupDelay {
       parameters: parameter1;
 
       /** Einschaltverzögerung des Wärmeerzeugers nach einer Wärmeanforderung. */
@@ -786,7 +786,7 @@ namespace _15 {
     /** Einschaltverzögerung Wärmeerzeuger 09-004 */
     @inherit(w)
     @ext(0x82, 0, 0x2)
-    model Set_Einschaltverzoegerung {
+    model EhpStartupDelayWrite {
       /** Einschaltverzögerung des Wärmeerzeugers nach einer Wärmeanforderung. */
       @unit("min")
       @divisor(10)
@@ -796,7 +796,7 @@ namespace _15 {
     /** Wärmeerzeuger Typ 09-007 */
     @inherit(r)
     @ext(0x83, 0, 0x2)
-    model Typ {
+    model EhpType {
       parameters: parameter1;
 
       /** Wärmeerzeuger Typ */
@@ -807,7 +807,7 @@ namespace _15 {
     /** Wärmeerzeuger Typ 09-007 */
     @inherit(w)
     @ext(0x83, 0, 0x2)
-    model Set_Typ {
+    model EhpTypeWrite {
       /** Wärmeerzeuger Typ */
       @values(Values_status_8)
       status: status;
@@ -816,7 +816,7 @@ namespace _15 {
     /** Bedingte Freigabe Wärmeerzeuger 09-011 */
     @inherit(r)
     @ext(0x84, 0, 0x2)
-    model Bedingte_freigabe {
+    model EhpConditionalEnable {
       parameters: parameter1;
 
       /** Mit dieser Einstellung kann eine bedingte Freigabe für den Wärmeerzeuger eingestellt werden. */
@@ -827,7 +827,7 @@ namespace _15 {
     /** Bedingte Freigabe Wärmeerzeuger 09-011 */
     @inherit(w)
     @ext(0x84, 0, 0x2)
-    model Set_Bedingte_freigabe {
+    model EhpConditionalEnableWrite {
       /** Mit dieser Einstellung kann eine bedingte Freigabe für den Wärmeerzeuger eingestellt werden. */
       @values(Values_status_9)
       status: status;
@@ -836,7 +836,7 @@ namespace _15 {
     /** Aussentemperatur Freigabe 09-012 */
     @inherit(r)
     @ext(0x85, 0, 0x2)
-    model Atemp_freigabe {
+    model EhpOutsideTempEnable {
       parameters: parameter_temp2;
 
       /** Mit der Einstellung wird die Aussentemperatur bei der die bedingte Freigabe des Wärmeerzeugers erfolgt bestimmt. */
@@ -846,7 +846,7 @@ namespace _15 {
     /** Aussentemperatur Freigabe 09-012 */
     @inherit(w)
     @ext(0x85, 0, 0x2)
-    model Set_Atemp_freigabe {
+    model EhpOutsideTempEnableWrite {
       /** Mit der Einstellung wird die Aussentemperatur bei der die bedingte Freigabe des Wärmeerzeugers erfolgt bestimmt. */
       temp: temp2;
     }
@@ -854,7 +854,7 @@ namespace _15 {
     /** Solltemperatur Handbetrieb 09-020 */
     @inherit(r)
     @ext(0x86, 0, 0x2)
-    model WE_Hand_temp_soll {
+    model EhpManualModeTempSetpoint {
       parameters: parameter1;
 
       /** Sollwert für die Wärmeerzeuger Vorlauftemperatur im Handbetrieb. */
@@ -864,7 +864,7 @@ namespace _15 {
     /** Solltemperatur Handbetrieb 09-020 */
     @inherit(w)
     @ext(0x86, 0, 0x2)
-    model Set_WE_Hand_temp_soll {
+    model EhpManualModeTempSetpointWrite {
       /** Sollwert für die Wärmeerzeuger Vorlauftemperatur im Handbetrieb. */
       temp: temp10;
     }
@@ -872,7 +872,7 @@ namespace _15 {
     /** Abschaltdifferenz Wärmeerzeuger Regelung 09-021 */
     @inherit(r)
     @ext(0x87, 0, 0x2)
-    model WE_Abschaltdifferenz {
+    model EhpShutdownDifferentialTemp {
       parameters: parameter_temp10K;
 
       /** Wird am WE Vorlauffühler die Temperatur TWVSoll+Einstellwert überschritten schaltet der WE aus. */
@@ -882,7 +882,7 @@ namespace _15 {
     /** Abschaltdifferenz Wärmeerzeuger Regelung 09-021 */
     @inherit(w)
     @ext(0x87, 0, 0x2)
-    model Set_WE_Abschaltdifferenz {
+    model EhpShutdownDifferentialTempWrite {
       /** Wird am WE Vorlauffühler die Temperatur TWVSoll+Einstellwert überschritten schaltet der WE aus. */
       temp: temp10K;
     }
@@ -890,7 +890,7 @@ namespace _15 {
     /** Stillstandszeit minimal Wärmeerzeuger 09-023 */
     @inherit(r)
     @ext(0x88, 0, 0x2)
-    model Stillstand_min {
+    model EhpStandstillTimeMin {
       parameters: parameter1;
 
       /** Mit dem Einsteller wird die minimale Stillstandszeit nach einer Abschaltung des Wärmeerzeugers eingestellt. */
@@ -902,7 +902,7 @@ namespace _15 {
     /** Stillstandszeit minimal Wärmeerzeuger 09-023 */
     @inherit(w)
     @ext(0x88, 0, 0x2)
-    model Set_Stillstand_min {
+    model EhpStandstillTimeMinWrite {
       /** Mit dem Einsteller wird die minimale Stillstandszeit nach einer Abschaltung des Wärmeerzeugers eingestellt. */
       @unit("min")
       @divisor(10)
@@ -912,7 +912,7 @@ namespace _15 {
     /** Laufzeit minimal Wärmeerzeuger 09-031 */
     @inherit(r)
     @ext(0x89, 0, 0x2)
-    model Laufzeit_min {
+    model EhpRuntimeMin {
       parameters: parameter1;
 
       /** Minimale Laufzeit für den Wärmeerzeuger nach dem Einschalten. */
@@ -924,7 +924,7 @@ namespace _15 {
     /** Laufzeit minimal Wärmeerzeuger 09-031 */
     @inherit(w)
     @ext(0x89, 0, 0x2)
-    model Set_Laufzeit_min {
+    model EhpRuntimeMinWrite {
       /** Minimale Laufzeit für den Wärmeerzeuger nach dem Einschalten. */
       @unit("min")
       @divisor(10)
@@ -934,7 +934,7 @@ namespace _15 {
     /** Externe Wärmeerzeuger Sperre 09-074 */
     @inherit(r)
     @ext(0x8a, 0, 0x2)
-    model Externe_we_sperre {
+    model EhpExternalLock {
       parameters: parameter1;
 
       /** todo 0xffff=Funktion invers is out of possible value range */
@@ -945,7 +945,7 @@ namespace _15 {
     /** Externe Wärmeerzeuger Sperre 09-074 */
     @inherit(w)
     @ext(0x8a, 0, 0x2)
-    model Set_Externe_we_sperre {
+    model EhpExternalLockWrite {
       /** todo 0xffff=Funktion invers is out of possible value range */
       @values(Values_status_10)
       status: status;
@@ -954,7 +954,7 @@ namespace _15 {
     /** Betriebswahl Wärmeerzeuger 09-075 */
     @inherit(r)
     @ext(0x8b, 0, 0x2)
-    model WE_Betriebswahl {
+    model EhpOperatingMode {
       parameters: parameter1;
 
       /** Betriebswahl Wärmeerzeuger */
@@ -965,7 +965,7 @@ namespace _15 {
     /** Betriebswahl Wärmeerzeuger 09-075 */
     @inherit(w)
     @ext(0x8b, 0, 0x2)
-    model Set_WE_Betriebswahl {
+    model EhpOperatingModeWrite {
       /** Betriebswahl Wärmeerzeuger */
       @values(Values_status_11)
       status: status;
@@ -974,7 +974,7 @@ namespace _15 {
     /** Messwertanpassung WE Rücklauftemperatur 09-079 */
     @inherit(r)
     @ext(0x8c, 0, 0x2)
-    model Messwertanpassung_rl {
+    model EhpOffsetReturn {
       parameters: parameter_temp10K;
 
       /** Mit der Einstellung kann der Messwert der Wärmeerzeuger Rücklauftemperatur angeglichen werden. */
@@ -984,7 +984,7 @@ namespace _15 {
     /** Messwertanpassung WE Rücklauftemperatur 09-079 */
     @inherit(w)
     @ext(0x8c, 0, 0x2)
-    model Set_Messwertanpassung_rl {
+    model EhpOffsetReturnWrite {
       /** Mit der Einstellung kann der Messwert der Wärmeerzeuger Rücklauftemperatur angeglichen werden. */
       temp: temp10K;
     }
@@ -992,7 +992,7 @@ namespace _15 {
     /** Betriebsart Wärmeerzeugerpumpe 09-099 */
     @inherit(r)
     @ext(0x8d, 0, 0x2)
-    model Betriebsart_pumpe {
+    model EhpOperatingModePump {
       parameters: parameter1;
 
       /** Freigabe Wärmeerzeugerpumpe mit */
@@ -1003,7 +1003,7 @@ namespace _15 {
     /** Betriebsart Wärmeerzeugerpumpe 09-099 */
     @inherit(w)
     @ext(0x8d, 0, 0x2)
-    model Set_Betriebsart_pumpe {
+    model EhpOperatingModePumpWrite {
       /** Freigabe Wärmeerzeugerpumpe mit */
       @values(Values_status_12)
       status: status;
@@ -1012,7 +1012,7 @@ namespace _15 {
     /** Maximaltemperatur Wärmeerzeuger Vorlauf 10-031 */
     @inherit(r)
     @ext(0x8e, 0, 0x2)
-    model We_vl_temp_max {
+    model EhpFlowTempMax {
       parameters: parameter_temp10;
 
       /** Wird die maximale WE Temperatur überschritten wird der WE unbedingt abgeschaltet. */
@@ -1022,7 +1022,7 @@ namespace _15 {
     /** Maximaltemperatur Wärmeerzeuger Vorlauf 10-031 */
     @inherit(w)
     @ext(0x8e, 0, 0x2)
-    model Set_We_vl_temp_max {
+    model EhpFlowTempMaxWrite {
       /** Wird die maximale WE Temperatur überschritten wird der WE unbedingt abgeschaltet. */
       temp: temp10;
     }
@@ -1030,7 +1030,7 @@ namespace _15 {
     /** Einschaltdifferenz Maximaltemperaturabschaltung 10-037 */
     @inherit(r)
     @ext(0x8f, 0, 0x2)
-    model Einschaltdiff_maxab {
+    model EhpStartupDifferentialTempMaxShutdown {
       parameters: parameter_temp10;
 
       /** Bei einer TWVmax Abschaltung ist immer diese eingesteltte Hysterese für die Wiedereinschaltung wirksam. */
@@ -1040,7 +1040,7 @@ namespace _15 {
     /** Einschaltdifferenz Maximaltemperaturabschaltung 10-037 */
     @inherit(w)
     @ext(0x8f, 0, 0x2)
-    model Set_Einschaltdiff_maxab {
+    model EhpStartupDifferentialTempMaxShutdownWrite {
       /** Bei einer TWVmax Abschaltung ist immer diese eingesteltte Hysterese für die Wiedereinschaltung wirksam. */
       temp: temp10;
     }
@@ -1048,7 +1048,7 @@ namespace _15 {
     /** Applikationstyp Wärmepumpe 15-006 */
     @inherit(r)
     @ext(0x90, 0, 0x2)
-    model WE_Applikationstyp {
+    model EhpApplicationType {
       parameters: parameter1;
 
       /** Damit kann ein vordefinierter Parametersatz für die Wärmepumpenfunktion geladen werden */
@@ -1059,7 +1059,7 @@ namespace _15 {
     /** Applikationstyp Wärmepumpe 15-006 */
     @inherit(w)
     @ext(0x90, 0, 0x2)
-    model Set_WE_Applikationstyp {
+    model EhpApplicationTypeWrite {
       /** Damit kann ein vordefinierter Parametersatz für die Wärmepumpenfunktion geladen werden */
       @values(Values_status_13)
       status: status;
@@ -1068,7 +1068,7 @@ namespace _15 {
     /** Heissgas Maximaltemperatur 15-010 */
     @inherit(r)
     @ext(0x91, 0, 0x2)
-    model Heissgas_temp_max {
+    model EhpHotGasTempMax {
       parameters: parameter_temp10;
 
       /** Übersteigt die Heissgastemperatur den Einstellwert wird der Verdichter sofort abgeschaltet und eine Heissgasstörung ausgelöst. */
@@ -1078,7 +1078,7 @@ namespace _15 {
     /** Heissgas Maximaltemperatur 15-010 */
     @inherit(w)
     @ext(0x91, 0, 0x2)
-    model Set_Heissgas_temp_max {
+    model EhpHotGasTempMaxWrite {
       /** Übersteigt die Heissgastemperatur den Einstellwert wird der Verdichter sofort abgeschaltet und eine Heissgasstörung ausgelöst. */
       temp: temp10;
     }
@@ -1086,7 +1086,7 @@ namespace _15 {
     /** Minimaler Kondensator Durchfluss 15-011 */
     @inherit(r)
     @ext(0x92, 0, 0x2)
-    model Kondensator_fluss_min {
+    model EhpCondenserFlowRateMin {
       parameters: parameter1;
 
       @divisor(10)
@@ -1096,7 +1096,7 @@ namespace _15 {
     /** Minimaler Kondensator Durchfluss 15-011 */
     @inherit(w)
     @ext(0x92, 0, 0x2)
-    model Set_Kondensator_fluss_min {
+    model EhpCondenserFlowRateMinWrite {
       @divisor(10)
       value: SIN;
     }
@@ -1104,7 +1104,7 @@ namespace _15 {
     /** Stillstandszeit Quellenpumpe bei Passivkühlbetrieb 15-020 */
     @inherit(r)
     @ext(0x93, 0, 0x2)
-    model Stillstand_quelle {
+    model EhpStandstillTimeSourcePump {
       parameters: parameter1;
 
       @unit("min")
@@ -1114,7 +1114,7 @@ namespace _15 {
     /** Stillstandszeit Quellenpumpe bei Passivkühlbetrieb 15-020 */
     @inherit(w)
     @ext(0x93, 0, 0x2)
-    model Set_Stillstand_quelle {
+    model EhpStandstillTimeSourcePumpWrite {
       @unit("min")
       time: UIN;
     }
@@ -1122,7 +1122,7 @@ namespace _15 {
     /** Nachlaufzeit Quellenpumpe 15-021 */
     @inherit(r)
     @ext(0x94, 0, 0x2)
-    model Nachlauf_quelle {
+    model EhpOverrunTimeSourcePump {
       parameters: parameter1;
 
       @unit("min")
@@ -1133,7 +1133,7 @@ namespace _15 {
     /** Nachlaufzeit Quellenpumpe 15-021 */
     @inherit(w)
     @ext(0x94, 0, 0x2)
-    model Set_Nachlauf_quelle {
+    model EhpOverrunTimeSourcePumpWrite {
       @unit("min")
       @divisor(10)
       time: UIN;
@@ -1142,7 +1142,7 @@ namespace _15 {
     /** Frostschutztemperatur Wärmequelle Austritt 15-022 */
     @inherit(r)
     @ext(0x95, 0, 0x2)
-    model Frostschutz_wq_out {
+    model EhpFrostProtectionTempSourceOutlet {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -1150,14 +1150,14 @@ namespace _15 {
     /** Frostschutztemperatur Wärmequelle Austritt 15-022 */
     @inherit(w)
     @ext(0x95, 0, 0x2)
-    model Set_Frostschutz_wq_out {
+    model EhpFrostProtectionTempSourceOutletWrite {
       temp: temp10;
     }
 
     /** Zykluszeit Taktbetrieb Wärmequellenpumpe 15-023 */
     @inherit(r)
     @ext(0x96, 0, 0x2)
-    model Zyklus_taktbetrieb_quelle {
+    model EhpSourcePumpCycleTime {
       parameters: parameter1;
 
       @unit("min")
@@ -1167,7 +1167,7 @@ namespace _15 {
     /** Zykluszeit Taktbetrieb Wärmequellenpumpe 15-023 */
     @inherit(w)
     @ext(0x96, 0, 0x2)
-    model Set_Zyklus_taktbetrieb_quelle {
+    model EhpSourcePumpCycleTimeWrite {
       @unit("min")
       time: UIN;
     }
@@ -1175,7 +1175,7 @@ namespace _15 {
     /** Abschaltoffset Quellenfrostschutz 15-025 */
     @inherit(r)
     @ext(0x97, 0, 0x2)
-    model Offset_ab_quellenfs {
+    model EhpSourceFrostProtectionShutdownOffset {
       parameters: parameter1;
 
       @unit("K")
@@ -1186,7 +1186,7 @@ namespace _15 {
     /** Abschaltoffset Quellenfrostschutz 15-025 */
     @inherit(w)
     @ext(0x97, 0, 0x2)
-    model Set_Offset_ab_quellenfs {
+    model EhpSourceFrostProtectionShutdownOffsetWrite {
       @unit("K")
       @divisor(10)
       temp: UIN;
@@ -1195,7 +1195,7 @@ namespace _15 {
     /** Frostschutztemperatur Wärmequellen Eintritt 15-031 */
     @inherit(r)
     @ext(0x98, 0, 0x2)
-    model Frostschutz_wq_in {
+    model EhpFrostProtectionTempSourceInlet {
       parameters: parameter1;
       temp: temp10;
     }
@@ -1203,14 +1203,14 @@ namespace _15 {
     /** Frostschutztemperatur Wärmequellen Eintritt 15-031 */
     @inherit(w)
     @ext(0x98, 0, 0x2)
-    model Set_Frostschutz_wq_in {
+    model EhpFrostProtectionTempSourceInletWrite {
       temp: temp10;
     }
 
     /** Verzögerung Niederdruckstörung 15-046 */
     @inherit(r)
     @ext(0x9a, 0, 0x2)
-    model Verzoegerung_nd_stoerung1 {
+    model EhpLowPressureErrorDelay {
       parameters: parameter1;
 
       @unit("min")
@@ -1221,7 +1221,7 @@ namespace _15 {
     /** Verzögerung Niederdruckstörung 15-046 */
     @inherit(w)
     @ext(0x9a, 0, 0x2)
-    model Set_Verzoegerung_nd_stoerung1 {
+    model EhpLowPressureErrorDelayWrite {
       @unit("min")
       @divisor(2)
       time: UIN;
@@ -1230,7 +1230,7 @@ namespace _15 {
     /** Frosttemperaturschwelle Wärmeerzeugerpumpe 15-048 */
     @inherit(r)
     @ext(0x9b, 0, 0x2)
-    model Frostschwelle_pumpe {
+    model EhpFrostProtectionTempPump {
       parameters: parameter1;
 
       @unit("°C")
@@ -1241,7 +1241,7 @@ namespace _15 {
     /** Frosttemperaturschwelle Wärmeerzeugerpumpe 15-048 */
     @inherit(w)
     @ext(0x9b, 0, 0x2)
-    model Set_Frostschwelle_pumpe {
+    model EhpFrostProtectionTempPumpWrite {
       @unit("°C")
       @divisor(2)
       temp: SIN;
@@ -1250,7 +1250,7 @@ namespace _15 {
     /** Messwertanpassung Quellenaustrittstemperatur 15-060 */
     @inherit(r)
     @ext(0x9c, 0, 0x2)
-    model Messwertanpassung_wq_out {
+    model EhpOffsetSourceOutlet {
       parameters: parameter_temp10;
 
       @unit("K")
@@ -1261,7 +1261,7 @@ namespace _15 {
     /** Messwertanpassung Quellenaustrittstemperatur 15-060 */
     @inherit(w)
     @ext(0x9c, 0, 0x2)
-    model Set_Messwertanpassung_wq_out {
+    model EhpOffsetSourceOutletWrite {
       @unit("K")
       @divisor(10)
       temp: SIN;
@@ -1270,7 +1270,7 @@ namespace _15 {
     /** Konfiguration Quellendruck Störung 15-070 */
     @inherit(r)
     @ext(0x9d, 0, 0x2)
-    model Konfig_wqdruck_stoerung {
+    model EhpConfigurationSourcePressureError {
       parameters: parameter1;
       status: SIN;
     }
@@ -1278,14 +1278,14 @@ namespace _15 {
     /** Konfiguration Quellendruck Störung 15-070 */
     @inherit(w)
     @ext(0x9d, 0, 0x2)
-    model Set_Konfig_wqdruck_stoerung {
+    model EhpConfigurationSourcePressureErrorWrite {
       status: SIN;
     }
 
     /** Konfiguration Motorschutz Quellenpumpe Störung 15-071 */
     @inherit(r)
     @ext(0x9e, 0, 0x2)
-    model Konfig_wqmotor_stoerung {
+    model EhpConfigurationSourcePumpMotorError {
       parameters: parameter1;
       status: SIN;
     }
@@ -1293,14 +1293,14 @@ namespace _15 {
     /** Konfiguration Motorschutz Quellenpumpe Störung 15-071 */
     @inherit(w)
     @ext(0x9e, 0, 0x2)
-    model Set_Konfig_wqmotor_stoerung {
+    model EhpConfigurationSourcePumpMotorErrorWrite {
       status: SIN;
     }
 
     /** Konfiguration Motorschutz Verdichter Störung 15-072 */
     @inherit(r)
     @ext(0x9f, 0, 0x2)
-    model Konfig_verdmotor_stoerung {
+    model EhpConfigurationCompressorMotorError {
       parameters: parameter1;
       status: SIN;
     }
@@ -1308,14 +1308,14 @@ namespace _15 {
     /** Konfiguration Motorschutz Verdichter Störung 15-072 */
     @inherit(w)
     @ext(0x9f, 0, 0x2)
-    model Set_Konfig_verdmotor_stoerung {
+    model EhpConfigurationCompressorMotorErrorWrite {
       status: SIN;
     }
 
     /** Konfiguration Hochdruck Störung 15-075 */
     @inherit(r)
     @ext(0xa0, 0, 0x2)
-    model Konfig_hd_stoerung {
+    model EhpConfigurationHighPressureError {
       parameters: parameter1;
       status: SIN;
     }
@@ -1323,14 +1323,14 @@ namespace _15 {
     /** Konfiguration Hochdruck Störung 15-075 */
     @inherit(w)
     @ext(0xa0, 0, 0x2)
-    model Set_Konfig_hd_stoerung {
+    model EhpConfigurationHighPressureErrorWrite {
       status: SIN;
     }
 
     /** Konfiguration Niederdruck Störung 15-076 */
     @inherit(r)
     @ext(0xa1, 0, 0x2)
-    model Konfig_nd_stoerung {
+    model EhpConfigurationLowPressureError {
       parameters: parameter1;
       status: SIN;
     }
@@ -1338,14 +1338,14 @@ namespace _15 {
     /** Konfiguration Niederdruck Störung 15-076 */
     @inherit(w)
     @ext(0xa1, 0, 0x2)
-    model Set_Konfig_nd_stoerung {
+    model EhpConfigurationLowPressureErrorWrite {
       status: SIN;
     }
 
     /** Konfiguration Wärmequellen Frostschutz Störung 15-077 */
     @inherit(r)
     @ext(0xa2, 0, 0x2)
-    model Konfig_wq_frostschutz_stoerung {
+    model EhpConfigurationSourceFrostProtectionTempError {
       parameters: parameter1;
       status: UIN;
     }
@@ -1353,14 +1353,14 @@ namespace _15 {
     /** Konfiguration Wärmequellen Frostschutz Störung 15-077 */
     @inherit(w)
     @ext(0xa2, 0, 0x2)
-    model Set_Konfig_wq_frostschutz_stoerung {
+    model EhpConfigurationSourceFrostProtectionTempErrorWrite {
       status: UIN;
     }
 
     /** Konfiguration Kondensator Frostschutz Störung 15-079 */
     @inherit(r)
     @ext(0xa3, 0, 0x2)
-    model Konfig_kondens_frostschutz_stoerung {
+    model EhpConfigurationCondenserFrostProtectionTempError {
       parameters: parameter1;
       status: UIN;
     }
@@ -1368,14 +1368,14 @@ namespace _15 {
     /** Konfiguration Kondensator Frostschutz Störung 15-079 */
     @inherit(w)
     @ext(0xa3, 0, 0x2)
-    model Set_Konfig_kondens_frostschutz_stoerung {
+    model EhpConfigurationCondenserFrostProtectionTempErrorWrite {
       status: UIN;
     }
 
     /** Konfiguration Heissgasabschaltung 15-083 */
     @inherit(r)
     @ext(0xa4, 0, 0x2)
-    model Konfig_heissgas_abschaltung {
+    model EhpHotGasShutdownConfiguration {
       parameters: parameter1;
       status: UIN;
     }
@@ -1384,14 +1384,14 @@ namespace _15 {
     /** Konfiguration Heissgasabschaltung 15-083 */
     @inherit(w)
     @ext(0xa4, 0, 0x2)
-    model Set_Konfig_heissgas_abschaltung {
+    model EhpHotGasShutdownConfigurationWrite {
       status: UIN;
     }
 
     /** Konfiguration Kondensator Durchfluss Störung 15-085 */
     @inherit(r)
     @ext(0xa5, 0, 0x2)
-    model Konfig_kondens_durchfluss_stoerung {
+    model EhpConfigurationCondenserFlowRateError {
       parameters: parameter1;
       status: UIN;
     }
@@ -1399,14 +1399,14 @@ namespace _15 {
     /** Konfiguration Kondensator Durchfluss Störung 15-085 */
     @inherit(w)
     @ext(0xa5, 0, 0x2)
-    model Set_Konfig_kondens_durchfluss_stoerung {
+    model EhpConfigurationCondenserFlowRateErrorWrite {
       status: UIN;
     }
 
     /** Frostschutztemperatur Passiv Kühlbetrieb 15-090 */
     @inherit(r)
     @ext(0xa6, 0, 0x2)
-    model Temp_frostschutz_passivkuehl {
+    model EhpPassiveCoolingFrostProtectionTemp {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -1414,14 +1414,14 @@ namespace _15 {
     /** Frostschutztemperatur Passiv Kühlbetrieb 15-090 */
     @inherit(w)
     @ext(0xa6, 0, 0x2)
-    model Set_Temp_frostschutz_passivkuehl {
+    model EhpPassiveCoolingFrostProtectionTempWrite {
       temp: temp10;
     }
 
     /** Konfiguration Durchflusssensor 17-007 */
     @inherit(r)
     @ext(0xa7, 0, 0x2)
-    model Konfig_durchflusssensor {
+    model EhpFlowSensorConfiguration {
       parameters: parameter1;
       status: status;
     }
@@ -1429,14 +1429,14 @@ namespace _15 {
     /** Konfiguration Durchflusssensor 17-007 */
     @inherit(w)
     @ext(0xa7, 0, 0x2)
-    model Set_Konfig_durchflusssensor {
+    model EhpFlowSensorConfigurationWrite {
       status: status;
     }
 
     /** Durchfluss Heizbetrieb 17-008 */
     @inherit(r)
     @ext(0xa8, 0, 0x2)
-    model Durchfluss_heizbetrieb {
+    model EhpFlowRateHeating {
       parameters: parameter1;
 
       @unit("l/min")
@@ -1447,7 +1447,7 @@ namespace _15 {
     /** Durchfluss Heizbetrieb 17-008 */
     @inherit(w)
     @ext(0xa8, 0, 0x2)
-    model Set_Durchfluss_heizbetrieb {
+    model EhpFlowRateHeatingWrite {
       @unit("l/min")
       @divisor(10)
       value: UIN;
@@ -1456,7 +1456,7 @@ namespace _15 {
     /** Durchfluss Warmwasser Ladung 17-009 */
     @inherit(r)
     @ext(0xa9, 0, 0x2)
-    model Durchfluss_ww {
+    model EhpHwFlowRate {
       parameters: parameter1;
 
       @unit("l/min")
@@ -1467,7 +1467,7 @@ namespace _15 {
     /** Durchfluss Warmwasser Ladung 17-009 */
     @inherit(w)
     @ext(0xa9, 0, 0x2)
-    model Set_Durchfluss_ww {
+    model EhpHwFlowRateWrite {
       @unit("l/min")
       @divisor(10)
       value: UIN;
@@ -1476,7 +1476,7 @@ namespace _15 {
     /** Korrekturfaktor Leistung 17-012 */
     @inherit(r)
     @ext(0xaa, 0, 0x2)
-    model Korr_faktor_leistung {
+    model EhpOffsetFactorOutput {
       parameters: parameter1;
 
       @unit("%")
@@ -1486,7 +1486,7 @@ namespace _15 {
     /** Korrekturfaktor Leistung 17-012 */
     @inherit(w)
     @ext(0xaa, 0, 0x2)
-    model Set_Korr_faktor_leistung {
+    model EhpOffsetFactorOutputWrite {
       @unit("%")
       value: UIN;
     }
@@ -1494,7 +1494,7 @@ namespace _15 {
     /** Konfiguration Durchflusssensor Warmwasserbetrieb 17-014 */
     @inherit(r)
     @ext(0xab, 0, 0x2)
-    model Konfig_durchlusssensor_ww {
+    model EhpHwFlowSensorConfiguration {
       parameters: parameter1;
       status: status;
     }
@@ -1502,14 +1502,14 @@ namespace _15 {
     /** Konfiguration Durchflusssensor Warmwasserbetrieb 17-014 */
     @inherit(w)
     @ext(0xab, 0, 0x2)
-    model Set_Konfig_durchlusssensor_ww {
+    model EhpHwFlowSensorConfigurationWrite {
       status: status;
     }
 
     /** Korrekturfaktor Leistung Warmwasserbetrieb 17-015 */
     @inherit(r)
     @ext(0xac, 0, 0x2)
-    model Korr_faktor_ww {
+    model EhpHwOffsetFactor {
       parameters: parameter1;
 
       @unit("%")
@@ -1519,7 +1519,7 @@ namespace _15 {
     /** Korrekturfaktor Leistung Warmwasserbetrieb 17-015 */
     @inherit(w)
     @ext(0xac, 0, 0x2)
-    model Set_Korr_faktor_ww {
+    model EhpHwOffsetFactorWrite {
       @unit("%")
       value: UIN;
     }
@@ -1527,7 +1527,7 @@ namespace _15 {
     /** Durchfluss separate Warmwasser Ladung 17-016 */
     @inherit(r)
     @ext(0xad, 0, 0x2)
-    model Druchfluss_sep_ww {
+    model EhpHwFlowRateSep {
       parameters: parameter1;
 
       @unit("l/min")
@@ -1538,7 +1538,7 @@ namespace _15 {
     /** Durchfluss separate Warmwasser Ladung 17-016 */
     @inherit(w)
     @ext(0xad, 0, 0x2)
-    model Set_Druchfluss_sep_ww {
+    model EhpHwFlowRateSepWrite {
       @unit("l/min")
       @divisor(10)
       value: UIN;
@@ -1547,7 +1547,7 @@ namespace _15 {
     /** WEP Leistungsanteil für COP Bestimmung 17-017 */
     @inherit(r)
     @ext(0xae, 0, 0x2)
-    model Wep_anteil_cop {
+    model EhpPowerShareForCop {
       parameters: parameter1;
 
       @unit("kW")
@@ -1558,7 +1558,7 @@ namespace _15 {
     /** WEP Leistungsanteil für COP Bestimmung 17-017 */
     @inherit(w)
     @ext(0xae, 0, 0x2)
-    model Set_Wep_anteil_cop {
+    model EhpPowerShareForCopWrite {
       @unit("kW")
       @divisor(100)
       value: SIN;
@@ -1567,7 +1567,7 @@ namespace _15 {
     /** WQP Leistungsanteil für COP Bestimmung 17-018 */
     @inherit(r)
     @ext(0xaf, 0, 0x2)
-    model Wqp_anteil_cop {
+    model EhpSourcePumpPowerShareForCop {
       parameters: parameter1;
 
       @unit("kW")
@@ -1578,7 +1578,7 @@ namespace _15 {
     /** WQP Leistungsanteil für COP Bestimmung 17-018 */
     @inherit(w)
     @ext(0xaf, 0, 0x2)
-    model Set_Wqp_anteil_cop {
+    model EhpSourcePumpPowerShareForCopWrite {
       @unit("kW")
       @divisor(100)
       value: SIN;
@@ -1590,12 +1590,12 @@ namespace _15 {
     @base(0x6, 0x21, 0x7b)
     model r {}
   }
-  @condition(Globals.Parameter_level.status, "'User_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'User_Level'")
   namespace Wp_relais.userlevel {
     /** Verdichter 01-076 */
     @inherit(r)
     @ext(0x80, 0, 0x2)
-    model Verdichter {
+    model EhpCompressor {
       parameters: parameter1;
 
       /** Stellgröße für eine Warmwasser Zirkulationspumpe */
@@ -1605,19 +1605,19 @@ namespace _15 {
     /** Umlenkventil Passiv Kühlung 01-086 */
     @inherit(r)
     @ext(0x81, 0, 0x2)
-    model Umlenkventil_passivkuehl {
+    model EhpPassiveCoolingDiverterValve {
       parameters: parameter1;
 
       /** Stellgröße für eine Warmwasser Ladepumpe oder Umlenkventil */
       status: status;
     }
   }
-  @condition(Globals.Parameter_level.status, "'Expert_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'Expert_Level'")
   namespace Wp_relais.expertlevel {
     /** Pumpe Wärmeerzeuger 01-022 */
     @inherit(r)
     @ext(0x80, 0, 0x2)
-    model We_pumpe {
+    model EhpPump {
       parameters: parameter1;
 
       /** Stellgröße für eine Warmwasser-Zusatzheizung */
@@ -1627,7 +1627,7 @@ namespace _15 {
     /** Verdichter 01-076 */
     @inherit(r)
     @ext(0x81, 0, 0x2)
-    model Verdichter {
+    model EhpCompressor {
       parameters: parameter1;
 
       /** Stellgröße für eine Warmwasser Zirkulationspumpe */
@@ -1637,7 +1637,7 @@ namespace _15 {
     /** Pumpe Wärmequelle 01-077 */
     @inherit(r)
     @ext(0x82, 0, 0x2)
-    model Wq_pumpe {
+    model EhpSourcePump {
       parameters: parameter1;
       status: status;
     }
@@ -1645,7 +1645,7 @@ namespace _15 {
     /** Umlenkventil Passiv Kühlung 01-086 */
     @inherit(r)
     @ext(0x83, 0, 0x2)
-    model Umlenkventil_passivkuehl {
+    model EhpPassiveCoolingDiverterValve {
       parameters: parameter1;
 
       /** Stellgröße für eine Warmwasser Ladepumpe oder Umlenkventil */
@@ -1661,7 +1661,7 @@ namespace _15 {
     /** Warmwassertemperatur 00-004 */
     @inherit(r)
     @ext(0, 0x84, 0, 0x4e)
-    model WW_Temp_ist_ping {
+    model HwcTempActualDisplay {
       parameters: parameter1;
 
       /** Obere Warmwasserspeichertemperatur */
@@ -1677,210 +1677,210 @@ namespace _15 {
     /** Zeitprogramm Warmwasser Teil 1 */
     @inherit(r)
     @ext(0xbd, 0, 0x4e)
-    model Tp0_ww {
+    model HwcSchedulePart1 {
       mode: tp_mode;
     }
 
     /** Zeitprogramm Warmwasser Teil 2 */
     @inherit(r)
     @ext(0xbd, 1, 0x4e)
-    model Tp1_ww {
+    model HwcSchedulePart2 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Warmwasser Teil 3 */
     @inherit(r)
     @ext(0xbd, 0x2, 0x4e)
-    model Tp2_ww {
+    model HwcSchedulePart3 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Warmwasser Teil 4 */
     @inherit(r)
     @ext(0xbd, 0x3, 0x4e)
-    model Tp3_ww {
+    model HwcSchedulePart4 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Warmwasser Teil 5 */
     @inherit(r)
     @ext(0xbd, 0x4, 0x4e)
-    model Tp4_ww {
+    model HwcSchedulePart5 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Warmwasser Teil 6 */
     @inherit(r)
     @ext(0xbd, 0x5, 0x4e)
-    model Tp5_ww {
+    model HwcSchedulePart6 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Warmwasser Teil 7 */
     @inherit(r)
     @ext(0xbd, 0x6, 0x4e)
-    model Tp6_ww {
+    model HwcSchedulePart7 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Warmwasser Teil 8 */
     @inherit(r)
     @ext(0xbd, 0x7, 0x4e)
-    model Tp7_ww {
+    model HwcSchedulePart8 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Warmwasser Teil 9 */
     @inherit(r)
     @ext(0xbd, 0x8, 0x4e)
-    model Tp8_ww {
+    model HwcSchedulePart9 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Warmwasser Teil 10 */
     @inherit(r)
     @ext(0xbd, 0x9, 0x4e)
-    model Tp9_ww {
+    model HwcSchedulePart10 {
       schedule: tp_8h;
     }
 
     /** Zeitprogramm Zirkulation Teil 1 */
     @inherit(r)
     @ext(0xc0, 0, 0x4e)
-    model Tp0_zirk {
+    model HwcCirculationSchedulePart1 {
       mode: tp_mode;
     }
 
     /** Zeitprogramm Zirkulation Teil 2 */
     @inherit(r)
     @ext(0xc0, 1, 0x4e)
-    model Tp1_zirk {
+    model HwcCirculationSchedulePart2 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Zirkulation Teil 3 */
     @inherit(r)
     @ext(0xc0, 0x2, 0x4e)
-    model Tp2_zirk {
+    model HwcCirculationSchedulePart3 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Zirkulation Teil 4 */
     @inherit(r)
     @ext(0xc0, 0x3, 0x4e)
-    model Tp3_zirk {
+    model HwcCirculationSchedulePart4 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Zirkulation Teil 5 */
     @inherit(r)
     @ext(0xc0, 0x4, 0x4e)
-    model Tp4_zirk {
+    model HwcCirculationSchedulePart5 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Zirkulation Teil 6 */
     @inherit(r)
     @ext(0xc0, 0x5, 0x4e)
-    model Tp5_zirk {
+    model HwcCirculationSchedulePart6 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Zirkulation Teil 7 */
     @inherit(r)
     @ext(0xc0, 0x6, 0x4e)
-    model Tp6_zirk {
+    model HwcCirculationSchedulePart7 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Zirkulation Teil 8 */
     @inherit(r)
     @ext(0xc0, 0x7, 0x4e)
-    model Tp7_zirk {
+    model HwcCirculationSchedulePart8 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Zirkulation Teil 9 */
     @inherit(r)
     @ext(0xc0, 0x8, 0x4e)
-    model Tp8_zirk {
+    model HwcCirculationSchedulePart9 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Zirkulation Teil 10 */
     @inherit(r)
     @ext(0xc0, 0x9, 0x4e)
-    model Tp9_zirk {
+    model HwcCirculationSchedulePart10 {
       schedule: tp_8h;
     }
 
     /** Zeitprogramm Legionellen Teil 1 */
     @inherit(r)
     @ext(0xbe, 0, 0x4e)
-    model Tp0_legio {
+    model HwcLegionellaProtectionSchedulePart1 {
       mode: tp_mode;
     }
 
     /** Zeitprogramm Legionellen Teil 2 */
     @inherit(r)
     @ext(0xbe, 1, 0x4e)
-    model Tp1_legio {
+    model HwcLegionellaProtectionSchedulePart2 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Legionellen Teil 3 */
     @inherit(r)
     @ext(0xbe, 0x2, 0x4e)
-    model Tp2_legio {
+    model HwcLegionellaProtectionSchedulePart3 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Legionellen Teil 4 */
     @inherit(r)
     @ext(0xbe, 0x3, 0x4e)
-    model Tp3_legio {
+    model HwcLegionellaProtectionSchedulePart4 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Legionellen Teil 5 */
     @inherit(r)
     @ext(0xbe, 0x4, 0x4e)
-    model Tp4_legio {
+    model HwcLegionellaProtectionSchedulePart5 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Legionellen Teil 6 */
     @inherit(r)
     @ext(0xbe, 0x5, 0x4e)
-    model Tp5_legio {
+    model HwcLegionellaProtectionSchedulePart6 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Legionellen Teil 7 */
     @inherit(r)
     @ext(0xbe, 0x6, 0x4e)
-    model Tp6_legio {
+    model HwcLegionellaProtectionSchedulePart7 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Legionellen Teil 8 */
     @inherit(r)
     @ext(0xbe, 0x7, 0x4e)
-    model Tp7_legio {
+    model HwcLegionellaProtectionSchedulePart8 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Legionellen Teil 9 */
     @inherit(r)
     @ext(0xbe, 0x8, 0x4e)
-    model Tp8_legio {
+    model HwcLegionellaProtectionSchedulePart9 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Legionellen Teil 10 */
     @inherit(r)
     @ext(0xbe, 0x9, 0x4e)
-    model Tp9_legio {
+    model HwcLegionellaProtectionSchedulePart10 {
       schedule: tp_8h;
     }
 
@@ -1899,7 +1899,7 @@ namespace _15 {
       #[0xbd, 0x8, 0x4e],
       #[0xbd, 0x9, 0x4e]
     )
-    model Tp_ww {
+    model HwcSchedule {
       all: tp_all;
     }
 
@@ -1918,7 +1918,7 @@ namespace _15 {
       #[0xc0, 0x8, 0x4e],
       #[0xc0, 0x9, 0x4e]
     )
-    model Tp_zirk {
+    model HwcCirculationSchedule {
       all: tp_all;
     }
 
@@ -1937,7 +1937,7 @@ namespace _15 {
       #[0xbe, 0x8, 0x4e],
       #[0xbe, 0x9, 0x4e]
     )
-    model Tp_legio {
+    model HwcLegionellaProtectionSchedule {
       all: tp_all;
     }
   }
@@ -1950,7 +1950,7 @@ namespace _15 {
     /** Warmwassertemperatur 00-004 */
     @inherit(r)
     @ext(0x80, 0, 0xe)
-    model WW_Temp_ist {
+    model HwcTempActual {
       parameters: parameter_temp10;
 
       /** Obere Warmwasserspeichertemperatur */
@@ -1960,7 +1960,7 @@ namespace _15 {
     /** Warmwassertemperatur Sollwert 01-004 */
     @inherit(r)
     @ext(0x81, 0, 0xe)
-    model Temp_soll_calc {
+    model HwcTempSetpointCalculated {
       parameters: parameter_temp10;
 
       /** Berechneter Sollwert für die Warmwassertemperatur */
@@ -1970,7 +1970,7 @@ namespace _15 {
     /** Status Warmwasserregelung 02-052 */
     @inherit(r)
     @ext(0x82, 0, 0xe)
-    model WW_Status {
+    model HwcOperatingState {
       parameters: parameter1;
 
       /** Zustand Warmwasserregelung */
@@ -1990,12 +1990,12 @@ namespace _15 {
     @base(0x6, 0x23, 0x65)
     model w {}
   }
-  @condition(Globals.Parameter_level.status, "'User_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'User_Level'")
   namespace Ww_param.userlevel {
     /** Betriebswahl Warmwasser 05-050 */
     @inherit(r)
     @ext(0x80, 0, 0xe)
-    model WW_Betriebswahl {
+    model HwcOperatingMode {
       parameters: parameter1;
 
       /** Betriebswahl Warmwasserfunktion */
@@ -2006,7 +2006,7 @@ namespace _15 {
     /** Betriebswahl Warmwasser 05-050 */
     @inherit(w)
     @ext(0x80, 0, 0xe)
-    model Set_WW_Betriebswahl {
+    model HwcOperatingModeWrite {
       /** Betriebswahl Warmwasserfunktion */
       @values(Values_status_14)
       status: status;
@@ -2015,7 +2015,7 @@ namespace _15 {
     /** Normal Warmwassertemperatur 05-051 */
     @inherit(r)
     @ext(0x81, 0, 0xe)
-    model Temp_soll {
+    model HwcComfortTempSetpoint {
       parameters: parameter_temp10;
 
       /** Mit dieser Einstellung wird der Warmwasser Sollwert eingestellt */
@@ -2025,7 +2025,7 @@ namespace _15 {
     /** Normal Warmwassertemperatur 05-051 */
     @inherit(w)
     @ext(0x81, 0, 0xe)
-    model Set_Temp_soll {
+    model HwcComfortTempSetpointWrite {
       /** Mit dieser Einstellung wird der Warmwasser Sollwert eingestellt */
       temp: temp10;
     }
@@ -2033,7 +2033,7 @@ namespace _15 {
     /** Applikationstyp Warmwasserbereitung 05-076 */
     @inherit(r)
     @ext(0x82, 0, 0xe)
-    model WW_Applikationstyp {
+    model HwcApplicationType {
       parameters: parameter1;
 
       /** Mit dieser Einstellung kann ein entsprechend definierter Applikationstyp vorgewählt werden */
@@ -2044,18 +2044,18 @@ namespace _15 {
     /** Applikationstyp Warmwasserbereitung 05-076 */
     @inherit(w)
     @ext(0x82, 0, 0xe)
-    model Set_WW_Applikationstyp {
+    model HwcApplicationTypeWrite {
       /** Mit dieser Einstellung kann ein entsprechend definierter Applikationstyp vorgewählt werden */
       @values(Values_status_15)
       status: status;
     }
   }
-  @condition(Globals.Parameter_level.status, "'Expert_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'Expert_Level'")
   namespace Ww_param.expertlevel {
     /** Ferien Zonenzuordnung 03-092 */
     @inherit(r)
     @ext(0x80, 0, 0xe)
-    model WW_Zone_ferien {
+    model HwcZoneHoliday {
       parameters: parameter1;
 
       /** Nutzung des lokalen Ferienprogramms oder das eines bestehenden Heizkreises */
@@ -2065,7 +2065,7 @@ namespace _15 {
     /** Ferien Zonenzuordnung 03-092 */
     @inherit(w)
     @ext(0x80, 0, 0xe)
-    model Set_WW_Zone_ferien {
+    model HwcZoneHolidayWrite {
       /** Nutzung des lokalen Ferienprogramms oder das eines bestehenden Heizkreises */
       status: status;
     }
@@ -2073,7 +2073,7 @@ namespace _15 {
     /** Timer Zonenzuordnung 03-093 */
     @inherit(r)
     @ext(0x81, 0, 0xe)
-    model WW_Zone_timer {
+    model HwcZoneTimer {
       parameters: parameter1;
 
       /** Nutzung der lokalen Timerfunktionen oder die eines bestehenden Heizkreises */
@@ -2083,7 +2083,7 @@ namespace _15 {
     /** Timer Zonenzuordnung 03-093 */
     @inherit(w)
     @ext(0x81, 0, 0xe)
-    model Set_WW_Zone_timer {
+    model HwcZoneTimerWrite {
       /** Nutzung der lokalen Timerfunktionen oder die eines bestehenden Heizkreises */
       status: status;
     }
@@ -2091,7 +2091,7 @@ namespace _15 {
     /** Betriebswahl Zonenzuordnung 03-094 */
     @inherit(r)
     @ext(0x82, 0, 0xe)
-    model WW_Zone_betriebswahl {
+    model HwcZoneOperatingMode {
       parameters: parameter1;
 
       /** Nutzung der lokalen Betriebswahl oder die eines bestehenden Heizkreises */
@@ -2101,7 +2101,7 @@ namespace _15 {
     /** Betriebswahl Zonenzuordnung 03-094 */
     @inherit(w)
     @ext(0x82, 0, 0xe)
-    model Set_WW_Zone_betriebswahl {
+    model HwcZoneOperatingModeWrite {
       /** Nutzung der lokalen Betriebswahl oder die eines bestehenden Heizkreises */
       status: status;
     }
@@ -2109,7 +2109,7 @@ namespace _15 {
     /** Zeitprogramm Zonenzuordnung 03-095 */
     @inherit(r)
     @ext(0x83, 0, 0xe)
-    model WW_Zone_zeitprogramm {
+    model HwcZoneProgram {
       parameters: parameter1;
 
       /** Nutzung des lokalen Zeitprogramms oder das eines bestehenden Heizkreises */
@@ -2119,7 +2119,7 @@ namespace _15 {
     /** Zeitprogramm Zonenzuordnung 03-095 */
     @inherit(w)
     @ext(0x83, 0, 0xe)
-    model Set_WW_Zone_zeitprogramm {
+    model HwcZoneProgramWrite {
       /** Nutzung des lokalen Zeitprogramms oder das eines bestehenden Heizkreises */
       status: status;
     }
@@ -2127,7 +2127,7 @@ namespace _15 {
     /** Einschaltdifferenz Warmwasserbereitung 05-000 */
     @inherit(r)
     @ext(0x84, 0, 0xe)
-    model Einschaltdifferenz {
+    model HwcStartupDifferentialTemp {
       parameters: parameter_temp10K;
 
       /** Unterschreitet die Warmwassertemperatur ihren Sollwert um den hier eingestellten Wert wird eine Warmwasserladung gestartet */
@@ -2139,7 +2139,7 @@ namespace _15 {
     /** Einschaltdifferenz Warmwasserbereitung 05-000 */
     @inherit(w)
     @ext(0x84, 0, 0xe)
-    model Set_Einschaltdifferenz {
+    model HwcStartupDifferentialTempWrite {
       /** Unterschreitet die Warmwassertemperatur ihren Sollwert um den hier eingestellten Wert wird eine Warmwasserladung gestartet */
       @unit("K")
       @divisor(10)
@@ -2149,7 +2149,7 @@ namespace _15 {
     /** Überhöhung Ladesollwert 05-001 */
     @inherit(r)
     @ext(0x85, 0, 0xe)
-    model Ueberhoehung {
+    model HwcLoadingOffset {
       parameters: parameter_temp10K;
 
       /** Mit diesem Einsteller kann eine Überhöhung für den Ladesollwert eingestellt werden */
@@ -2161,7 +2161,7 @@ namespace _15 {
     /** Überhöhung Ladesollwert 05-001 */
     @inherit(w)
     @ext(0x85, 0, 0xe)
-    model Set_Ueberhoehung {
+    model HwcLoadingOffsetWrite {
       /** Mit diesem Einsteller kann eine Überhöhung für den Ladesollwert eingestellt werden */
       @unit("K")
       @divisor(10)
@@ -2171,7 +2171,7 @@ namespace _15 {
     /** Warmwasser Ladevorrang 05-002 */
     @inherit(r)
     @ext(0x86, 0, 0xe)
-    model Ladevorrang {
+    model HwcChargingPriority {
       parameters: parameter1;
 
       /** Mit dieser Einstellung kann der Ladevorrang eingestellt werden */
@@ -2183,7 +2183,7 @@ namespace _15 {
     /** Warmwasser Ladevorrang 05-002 */
     @inherit(w)
     @ext(0x86, 0, 0xe)
-    model Set_Ladevorrang {
+    model HwcChargingPriorityWrite {
       /** Mit dieser Einstellung kann der Ladevorrang eingestellt werden */
       @unit("h")
       @divisor(10)
@@ -2193,7 +2193,7 @@ namespace _15 {
     /** Nachlaufzeit Warmwasserladepumpe 05-003 */
     @inherit(r)
     @ext(0x87, 0, 0xe)
-    model Nachlauf_ladepumpe {
+    model HwcOverrunTimeChargingPump {
       parameters: parameter1;
 
       /** Nach erfolgter Warmwasserladung läuft die Ladepumpe um die hier eingestellte Zeit nach */
@@ -2205,7 +2205,7 @@ namespace _15 {
     /** Nachlaufzeit Warmwasserladepumpe 05-003 */
     @inherit(w)
     @ext(0x87, 0, 0xe)
-    model Set_Nachlauf_ladepumpe {
+    model HwcOverrunTimeChargingPumpWrite {
       /** Nach erfolgter Warmwasserladung läuft die Ladepumpe um die hier eingestellte Zeit nach */
       @unit("min")
       @divisor(10)
@@ -2215,7 +2215,7 @@ namespace _15 {
     /** Legionellenschutztemperatur 05-004 */
     @inherit(r)
     @ext(0x88, 0, 0xe)
-    model Legio {
+    model HwcTempLegionellaProtection {
       parameters: parameter_temp10;
 
       /** Mit dem Einsteller wird die Legionellenschutz- bzw. die Komfort Warmwassertemperatur gewählt */
@@ -2225,7 +2225,7 @@ namespace _15 {
     /** Legionellenschutztemperatur 05-004 */
     @inherit(w)
     @ext(0x88, 0, 0xe)
-    model Set_Legio {
+    model HwcTempLegionellaProtectionWrite {
       /** Mit dem Einsteller wird die Legionellenschutz- bzw. die Komfort Warmwassertemperatur gewählt */
       temp: temp10;
     }
@@ -2233,7 +2233,7 @@ namespace _15 {
     /** Modus Ladepumpennachlauf 05-005 */
     @inherit(r)
     @ext(0x89, 0, 0xe)
-    model Modus_ladepumpennachlauf {
+    model HwcModeChargingPumpOverrun {
       parameters: parameter1;
 
       /** Wahl des Modus für die Ladepumpensteuerung */
@@ -2244,7 +2244,7 @@ namespace _15 {
     /** Modus Ladepumpennachlauf 05-005 */
     @inherit(w)
     @ext(0x89, 0, 0xe)
-    model Set_Modus_ladepumpennachlauf {
+    model HwcModeChargingPumpOverrunWrite {
       /** Wahl des Modus für die Ladepumpensteuerung */
       @values(Values_status_16)
       status: status;
@@ -2253,7 +2253,7 @@ namespace _15 {
     /** Zirkulationspumpe 05-006 */
     @inherit(r)
     @ext(0x8a, 0, 0xe)
-    model Zirkulationspumpe {
+    model HwcCirculationPumpOperatingMode {
       parameters: parameter1;
 
       /** Mit der Einstellung kann die Zirkulationspumpenfunktion aktiviert werden */
@@ -2264,7 +2264,7 @@ namespace _15 {
     /** Zirkulationspumpe 05-006 */
     @inherit(w)
     @ext(0x8a, 0, 0xe)
-    model Set_Zirkulationspumpe {
+    model HwcCirculationPumpOperatingModeWrite {
       /** Mit der Einstellung kann die Zirkulationspumpenfunktion aktiviert werden */
       @values(Values_status_17)
       status: status;
@@ -2273,7 +2273,7 @@ namespace _15 {
     /** Pumpenanforderung Warmwasserladung 05-007 */
     @inherit(r)
     @ext(0x8b, 0, 0xe)
-    model Pumpenanforderung {
+    model HwcPump {
       parameters: parameter1;
 
       /** Mit dem Einsteller kann die Heizkreispumpe für die Warmwasserladung aktiviert werden */
@@ -2284,7 +2284,7 @@ namespace _15 {
     /** Pumpenanforderung Warmwasserladung 05-007 */
     @inherit(w)
     @ext(0x8b, 0, 0xe)
-    model Set_Pumpenanforderung {
+    model HwcPumpWrite {
       /** Mit dem Einsteller kann die Heizkreispumpe für die Warmwasserladung aktiviert werden */
       @values(Values_status_18)
       status: status;
@@ -2293,7 +2293,7 @@ namespace _15 {
     /** Freigabetemperatur Nachladung 05-010 */
     @inherit(r)
     @ext(0x8c, 0, 0xe)
-    model Temp_freigabe_nachladung {
+    model HwcTempEnableRechargingTime {
       parameters: parameter_temp10;
 
       /** Ist die WW-Temperatur höher als die eingestelllte Nachladetemperatur wird die Ladeanforderung an die zentrale WE-Anlage abgeschaltet und eine WW-interne Ladung eingeschaltet */
@@ -2303,7 +2303,7 @@ namespace _15 {
     /** Freigabetemperatur Nachladung 05-010 */
     @inherit(w)
     @ext(0x8c, 0, 0xe)
-    model Set_Temp_freigabe_nachladung {
+    model HwcTempEnableRechargingTimeWrite {
       /** Ist die WW-Temperatur höher als die eingestelllte Nachladetemperatur wird die Ladeanforderung an die zentrale WE-Anlage abgeschaltet und eine WW-interne Ladung eingeschaltet */
       temp: temp10;
     }
@@ -2311,7 +2311,7 @@ namespace _15 {
     /** Modus Warmwasserladung 05-011 */
     @inherit(r)
     @ext(0x8d, 0, 0xe)
-    model Modus_wwladung {
+    model HwcModeCharging {
       parameters: parameter1;
 
       /** Einstellung Warmwassermodus */
@@ -2322,7 +2322,7 @@ namespace _15 {
     /** Modus Warmwasserladung 05-011 */
     @inherit(w)
     @ext(0x8d, 0, 0xe)
-    model Set_Modus_wwladung {
+    model HwcModeChargingWrite {
       /** Einstellung Warmwassermodus */
       @values(Values_status_19)
       status: status;
@@ -2331,7 +2331,7 @@ namespace _15 {
     /** Reduktion Warmwassersollwert im Störfall 05-013 */
     @inherit(r)
     @ext(0x8e, 0, 0xe)
-    model Reduktion_temp_error {
+    model HwcReductionTempOnError {
       parameters: parameter1;
 
       /** Bei einer Wärmeerzeugerstörung wird der Warmwassersollwert um den hier eingestellten Wert reduziert */
@@ -2343,7 +2343,7 @@ namespace _15 {
     /** Reduktion Warmwassersollwert im Störfall 05-013 */
     @inherit(w)
     @ext(0x8e, 0, 0xe)
-    model Set_Reduktion_temp_error {
+    model HwcReductionTempOnErrorWrite {
       /** Bei einer Wärmeerzeugerstörung wird der Warmwassersollwert um den hier eingestellten Wert reduziert */
       @unit("K")
       @divisor(2)
@@ -2353,7 +2353,7 @@ namespace _15 {
     /** Energiezwangzahl 05-039 */
     @inherit(r)
     @ext(0x8f, 0, 0xe)
-    model WW_Energiezwangzahl {
+    model HwcForcedEnergyNumber {
       parameters: parameter1;
 
       /** Mit der Einstellung kann die Reaktion des Warmwasserkreises auf Energiezwang eingestellt werden */
@@ -2364,7 +2364,7 @@ namespace _15 {
     /** Energiezwangzahl 05-039 */
     @inherit(w)
     @ext(0x8f, 0, 0xe)
-    model Set_WW_Energiezwangzahl {
+    model HwcForcedEnergyNumberWrite {
       /** Mit der Einstellung kann die Reaktion des Warmwasserkreises auf Energiezwang eingestellt werden */
       @values(Values_status_20)
       status: status;
@@ -2373,7 +2373,7 @@ namespace _15 {
     /** Fehlerdauer Warmwasser Störung 05-040 */
     @inherit(r)
     @ext(0x90, 0, 0xe)
-    model Fehlerdauer {
+    model HwcErrorDuration {
       parameters: parameter1;
 
       /** Unterschreitet die Warmwassertemperatur den Sollwert länger als die hier eingestellte Zeit um mehr als 5K wird eine Störmeldung generiert. 0=keine Störmeldung */
@@ -2385,7 +2385,7 @@ namespace _15 {
     /** Fehlerdauer Warmwasser Störung 05-040 */
     @inherit(w)
     @ext(0x90, 0, 0xe)
-    model Set_Fehlerdauer {
+    model HwcErrorDurationWrite {
       /** Unterschreitet die Warmwassertemperatur den Sollwert länger als die hier eingestellte Zeit um mehr als 5K wird eine Störmeldung generiert. 0=keine Störmeldung */
       @unit("h")
       @divisor(10)
@@ -2395,7 +2395,7 @@ namespace _15 {
     /** Betriebswahl Warmwasser 05-050 */
     @inherit(r)
     @ext(0x91, 0, 0xe)
-    model WW_Betriebswahl {
+    model HwcOperatingMode {
       parameters: parameter1;
 
       /** Betriebswahl Warmwasserfunktion */
@@ -2406,7 +2406,7 @@ namespace _15 {
     /** Betriebswahl Warmwasser 05-050 */
     @inherit(w)
     @ext(0x91, 0, 0xe)
-    model Set_WW_Betriebswahl {
+    model HwcOperatingModeWrite {
       /** Betriebswahl Warmwasserfunktion */
       @values(Values_status_21)
       status: status;
@@ -2415,7 +2415,7 @@ namespace _15 {
     /** Normal Warmwassertemperatur 05-051 */
     @inherit(r)
     @ext(0x92, 0, 0xe)
-    model Temp_soll {
+    model HwcComfortTempSetpoint {
       parameters: parameter_temp10;
 
       /** Mit dieser Einstellung wird der Warmwasser Sollwert eingestellt */
@@ -2425,7 +2425,7 @@ namespace _15 {
     /** Normal Warmwassertemperatur 05-051 */
     @inherit(w)
     @ext(0x92, 0, 0xe)
-    model Set_Temp_soll {
+    model HwcComfortTempSetpointWrite {
       /** Mit dieser Einstellung wird der Warmwasser Sollwert eingestellt */
       temp: temp10;
     }
@@ -2433,7 +2433,7 @@ namespace _15 {
     /** Maximale Warmwasser Sollwertbegrenzung 05-057 */
     @inherit(r)
     @ext(0x93, 0, 0xe)
-    model Temp_maxgrenze {
+    model HwcTempMaxLimit {
       parameters: parameter1;
 
       /** Mit diesem Einsteller kann der Einstellbereich der Warmwasser Solltemperatur (05-051) begrenzt werden. */
@@ -2444,7 +2444,7 @@ namespace _15 {
     /** Maximale Warmwasser Sollwertbegrenzung 05-057 */
     @inherit(w)
     @ext(0x93, 0, 0xe)
-    model Set_Temp_maxgrenze {
+    model HwcTempMaxLimitWrite {
       /** Mit diesem Einsteller kann der Einstellbereich der Warmwasser Solltemperatur (05-051) begrenzt werden. */
       @unit("°C")
       temp: UIN;
@@ -2453,7 +2453,7 @@ namespace _15 {
     /** Applikationstyp Warmwasserbereitung 05-076 */
     @inherit(r)
     @ext(0x94, 0, 0xe)
-    model WW_Applikationstyp {
+    model HwcApplicationType {
       parameters: parameter1;
 
       /** Mit dieser Einstellung kann ein entsprechend definierter Applikationstyp vorgewählt werden */
@@ -2464,7 +2464,7 @@ namespace _15 {
     /** Applikationstyp Warmwasserbereitung 05-076 */
     @inherit(w)
     @ext(0x94, 0, 0xe)
-    model Set_WW_Applikationstyp {
+    model HwcApplicationTypeWrite {
       /** Mit dieser Einstellung kann ein entsprechend definierter Applikationstyp vorgewählt werden */
       @values(Values_status_22)
       status: status;
@@ -2473,7 +2473,7 @@ namespace _15 {
     /** Maximale Warmwasser Ladedauer 05-081 (Prüfen!) */
     @inherit(r)
     @ext(0x95, 0, 0xe)
-    model Ladedauer_max {
+    model HwcChargingTimeMax {
       parameters: parameter1;
 
       /** Wird die eingestellte Maximalladedauer überschritten wird der Ladevorgang unterbrochen und erst wieder gestartet wenn die Einschaltdifferenz (05-000) zur aktuellen Warmwassertemperatur überschritten wird. */
@@ -2485,7 +2485,7 @@ namespace _15 {
     /** Maximale Warmwasser Ladedauer 05-081 (Prüfen!) */
     @inherit(w)
     @ext(0x95, 0, 0xe)
-    model Set_Ladedauer_max {
+    model HwcChargingTimeMaxWrite {
       /** Wird die eingestellte Maximalladedauer überschritten wird der Ladevorgang unterbrochen und erst wieder gestartet wenn die Einschaltdifferenz (05-000) zur aktuellen Warmwassertemperatur überschritten wird. */
       @unit("h")
       @divisor(2)
@@ -2495,7 +2495,7 @@ namespace _15 {
     /** Maximale Nachladedauer bei Ladungsabbruch 05-082 (Prüfen!) */
     @inherit(r)
     @ext(0x96, 0, 0xe)
-    model Nachladedauer_max {
+    model HwcRechargingTimeMax {
       parameters: parameter1;
 
       /** Wird bei Warmwassermode (05-011) 6 oder 7 die Nachladung aktiviert kann diese mit der maximalen Nachladezeit nach der hier eingestellten Zeit beendet werden. Bei Einstellung 0 wird die Nachladung gar nicht aktiviert. */
@@ -2507,7 +2507,7 @@ namespace _15 {
     /** Maximale Nachladedauer bei Ladungsabbruch 05-082 (Prüfen!) */
     @inherit(w)
     @ext(0x96, 0, 0xe)
-    model Set_Nachladedauer_max {
+    model HwcRechargingTimeMaxWrite {
       /** Wird bei Warmwassermode (05-011) 6 oder 7 die Nachladung aktiviert kann diese mit der maximalen Nachladezeit nach der hier eingestellten Zeit beendet werden. Bei Einstellung 0 wird die Nachladung gar nicht aktiviert. */
       @unit("h")
       @divisor(2)
@@ -2523,7 +2523,7 @@ namespace _15 {
     /** Warmwasser Ladungsanforderung 01-054 */
     @inherit(r)
     @ext(0x80, 0, 0xe)
-    model Ladungsanforderung {
+    model HwcChargingRequest {
       parameters: parameter1;
 
       /** Stellgröße für eine Warmwasser-Zusatzheizung */
@@ -2533,7 +2533,7 @@ namespace _15 {
     /** Warmwasser Zirkulationspumpe 01-065 */
     @inherit(r)
     @ext(0x81, 0, 0xe)
-    model WW_Zirkulationspumpe {
+    model HwcCirculationPump {
       parameters: parameter1;
 
       /** Stellgröße für eine Warmwasser Zirkulationspumpe */
@@ -2543,7 +2543,7 @@ namespace _15 {
     /** Warmwasser Ladepumpe 01-066 */
     @inherit(r)
     @ext(0x82, 0, 0xe)
-    model Ladungspumpe {
+    model HwcChargingPump {
       parameters: parameter1;
 
       /** Stellgröße für eine Warmwasser Ladepumpe oder Umlenkventil */
@@ -2559,7 +2559,7 @@ namespace _15 {
     /** Aussentemperatur 00-000 */
     @inherit(r)
     @ext(0, 0x80, 0, 0x4a)
-    model HK_At_ping {
+    model HcOutsideTempDisplay {
       parameters: parameter_temp10;
 
       /** Aussentemperatur */
@@ -2569,7 +2569,7 @@ namespace _15 {
     /** Raumtemperatur 00-001 */
     @inherit(r)
     @ext(0, 0x81, 0, 0x4a)
-    model Raumtemp {
+    model HcRoomTemp {
       parameters: parameter_temp10;
 
       /** Raumtemperatur eines Heizkreises */
@@ -2579,7 +2579,7 @@ namespace _15 {
     /** Heizkreis Vorlauftemperatur 00-002 */
     @inherit(r)
     @ext(0, 0x82, 0, 0x4a)
-    model HK_Vl_temp_ist_ping {
+    model HcFlowTempActualDisplay {
       parameters: parameter_temp10;
 
       /** Vorlauftemperatur eines Heizkreises */
@@ -2589,7 +2589,7 @@ namespace _15 {
     /** Uhrzeit 02-072 */
     @inherit(r)
     @ext(0x2, 0xc8, 0, 0x4a)
-    model HK_Time {
+    model HcTime {
       parameters: parameter1;
 
       /** Uhrzeit */
@@ -2599,7 +2599,7 @@ namespace _15 {
     /** Wochentag 02-073 */
     @inherit(r)
     @ext(0x2, 0xc9, 0, 0x4a)
-    model HK_Wd {
+    model HcWeekday {
       parameters: parameter_wd;
 
       /** Wochentag */
@@ -2609,7 +2609,7 @@ namespace _15 {
     /** HK Staus Heizkreisregelung 02-051 */
     @inherit(r)
     @ext(0x2, 0xb3, 0, 0x4a)
-    model HK_Status_ping {
+    model HcOperatingStateDisplay {
       parameters: parameter1;
 
       /** Zustand Heizkreisregelung */
@@ -2626,210 +2626,210 @@ namespace _15 {
     /** Zeitprogramm Heizung 1 Teil 1 */
     @inherit(r)
     @ext(0xbd, 0, 0x4a)
-    model Tp0_hzg1 {
+    model HcSchedule1Part1 {
       mode: tp_mode;
     }
 
     /** Zeitprogramm Heizung 1 Teil 2 */
     @inherit(r)
     @ext(0xbd, 1, 0x4a)
-    model Tp1_hzg1 {
+    model HcSchedule1Part2 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 1 Teil 3 */
     @inherit(r)
     @ext(0xbd, 0x2, 0x4a)
-    model Tp2_hzg1 {
+    model HcSchedule1Part3 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 1 Teil 4 */
     @inherit(r)
     @ext(0xbd, 0x3, 0x4a)
-    model Tp3_hzg1 {
+    model HcSchedule1Part4 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 1 Teil 5 */
     @inherit(r)
     @ext(0xbd, 0x4, 0x4a)
-    model Tp4_hzg1 {
+    model HcSchedule1Part5 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 1 Teil 6 */
     @inherit(r)
     @ext(0xbd, 0x5, 0x4a)
-    model Tp5_hzg1 {
+    model HcSchedule1Part6 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 1 Teil 7 */
     @inherit(r)
     @ext(0xbd, 0x6, 0x4a)
-    model Tp6_hzg1 {
+    model HcSchedule1Part7 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 1 Teil 8 */
     @inherit(r)
     @ext(0xbd, 0x7, 0x4a)
-    model Tp7_hzg1 {
+    model HcSchedule1Part8 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 1 Teil 9 */
     @inherit(r)
     @ext(0xbd, 0x8, 0x4a)
-    model Tp8_hzg1 {
+    model HcSchedule1Part9 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 1 Teil 10 */
     @inherit(r)
     @ext(0xbd, 0x9, 0x4a)
-    model Tp9_hzg1 {
+    model HcSchedule1Part10 {
       schedule: tp_8h;
     }
 
     /** Zeitprogramm Heizung 2 Teil 1 */
     @inherit(r)
     @ext(0xbe, 0, 0x4a)
-    model Tp0_hzg2 {
+    model HcSchedule2Part1 {
       mode: tp_mode;
     }
 
     /** Zeitprogramm Heizung 2 Teil 2 */
     @inherit(r)
     @ext(0xbe, 1, 0x4a)
-    model Tp1_hzg2 {
+    model HcSchedule2Part2 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 2 Teil 3 */
     @inherit(r)
     @ext(0xbe, 0x2, 0x4a)
-    model Tp2_hzg2 {
+    model HcSchedule2Part3 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 2 Teil 4 */
     @inherit(r)
     @ext(0xbe, 0x3, 0x4a)
-    model Tp3_hzg2 {
+    model HcSchedule2Part4 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 2 Teil 5 */
     @inherit(r)
     @ext(0xbe, 0x4, 0x4a)
-    model Tp4_hzg2 {
+    model HcSchedule2Part5 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 2 Teil 6 */
     @inherit(r)
     @ext(0xbe, 0x5, 0x4a)
-    model Tp5_hzg2 {
+    model HcSchedule2Part6 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 2 Teil 7 */
     @inherit(r)
     @ext(0xbe, 0x6, 0x4a)
-    model Tp6_hzg2 {
+    model HcSchedule2Part7 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 2 Teil 8 */
     @inherit(r)
     @ext(0xbe, 0x7, 0x4a)
-    model Tp7_hzg2 {
+    model HcSchedule2Part8 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 2 Teil 9 */
     @inherit(r)
     @ext(0xbe, 0x8, 0x4a)
-    model Tp8_hzg2 {
+    model HcSchedule2Part9 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 2 Teil 10 */
     @inherit(r)
     @ext(0xbe, 0x9, 0x4a)
-    model Tp9_hzg2 {
+    model HcSchedule2Part10 {
       schedule: tp_8h;
     }
 
     /** Zeitprogramm Heizung 3 Teil 1 */
     @inherit(r)
     @ext(0xbf, 0, 0x4a)
-    model Tp0_hzg3 {
+    model HcSchedule3Part1 {
       mode: tp_mode;
     }
 
     /** Zeitprogramm Heizung 3 Teil 2 */
     @inherit(r)
     @ext(0xbf, 1, 0x4a)
-    model Tp1_hzg3 {
+    model HcSchedule3Part2 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 3 Teil 3 */
     @inherit(r)
     @ext(0xbf, 0x2, 0x4a)
-    model Tp2_hzg3 {
+    model HcSchedule3Part3 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 3 Teil 4 */
     @inherit(r)
     @ext(0xbf, 0x3, 0x4a)
-    model Tp3_hzg3 {
+    model HcSchedule3Part4 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 3 Teil 5 */
     @inherit(r)
     @ext(0xbf, 0x4, 0x4a)
-    model Tp4_hzg3 {
+    model HcSchedule3Part5 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 3 Teil 6 */
     @inherit(r)
     @ext(0xbf, 0x5, 0x4a)
-    model Tp5_hzg3 {
+    model HcSchedule3Part6 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 3 Teil 7 */
     @inherit(r)
     @ext(0xbf, 0x6, 0x4a)
-    model Tp6_hzg3 {
+    model HcSchedule3Part7 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 3 Teil 8 */
     @inherit(r)
     @ext(0xbf, 0x7, 0x4a)
-    model Tp7_hzg3 {
+    model HcSchedule3Part8 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 3 Teil 9 */
     @inherit(r)
     @ext(0xbf, 0x8, 0x4a)
-    model Tp8_hzg3 {
+    model HcSchedule3Part9 {
       schedule: tp_20h;
     }
 
     /** Zeitprogramm Heizung 3 Teil 10 */
     @inherit(r)
     @ext(0xbf, 0x9, 0x4a)
-    model Tp9_hzg3 {
+    model HcSchedule3Part10 {
       schedule: tp_8h;
     }
 
@@ -2848,7 +2848,7 @@ namespace _15 {
       #[0xbd, 0x8, 0x4a],
       #[0xbd, 0x9, 0x4a]
     )
-    model Tp_hzg1 {
+    model HcSchedule1 {
       all: tp_all;
     }
 
@@ -2867,7 +2867,7 @@ namespace _15 {
       #[0xbe, 0x8, 0x4a],
       #[0xbe, 0x9, 0x4a]
     )
-    model Tp_hzg2 {
+    model HcSchedule2 {
       all: tp_all;
     }
 
@@ -2886,7 +2886,7 @@ namespace _15 {
       #[0xbf, 0x8, 0x4a],
       #[0xbf, 0x9, 0x4a]
     )
-    model Tp_hzg3 {
+    model HcSchedule3 {
       all: tp_all;
     }
   }
@@ -2899,7 +2899,7 @@ namespace _15 {
     /** Aussentemperatur 00-000 */
     @inherit(r)
     @ext(0x80, 0, 0xa)
-    model HK_At {
+    model HcOutsideTemp {
       parameters: parameter_temp10;
 
       /** HK Aussentemperatur */
@@ -2909,7 +2909,7 @@ namespace _15 {
     /** Raumtemperatur Sollwert 01-001 */
     @inherit(r)
     @ext(0x81, 0, 0xa)
-    model Raumtemp_soll {
+    model HcRoomTempSetpoint {
       parameters: parameter_temp10;
 
       /** Berechneter Sollwert für die Raumtemperatur */
@@ -2919,7 +2919,7 @@ namespace _15 {
     /** Heizkreis Vorlauftemperatur Ist 00-002 */
     @inherit(r)
     @ext(0x82, 0, 0xa)
-    model HK_Vl_temp_ist {
+    model HcFlowTempActual {
       parameters: parameter_temp10;
 
       /** Vorlauftemperatur eines Heizkreises */
@@ -2929,7 +2929,7 @@ namespace _15 {
     /** Heizkreis Vorlauftemperatur Sollwert 01-002 */
     @inherit(r)
     @ext(0x83, 0, 0xa)
-    model HK_Vl_temp_soll {
+    model HcFlowTempSetpoint {
       parameters: parameter_temp10;
 
       /** Berechneter Sollwert für die Heizkreis Vorlauftemperatur */
@@ -2939,7 +2939,7 @@ namespace _15 {
     /** Aussentemperatur Mittelwert 02-020 */
     @inherit(r)
     @ext(0x84, 0, 0xa)
-    model At_mittel {
+    model HcOutsideTempAverage {
       parameters: parameter_temp10;
 
       /** Berechneter Aussentemperatur Mittelwert */
@@ -2949,7 +2949,7 @@ namespace _15 {
     /** Status Heizkreisregelung 02-051 */
     @inherit(r)
     @ext(0x85, 0, 0xa)
-    model HK_Status {
+    model HcOperatingState {
       parameters: parameter1;
 
       /** Zustand Heizkreisregelung */
@@ -2972,20 +2972,20 @@ namespace _15 {
     /** default *r_1 */
     @zz(0x15)
     @base(0x6, 0x21, 0x67)
-    model r_1 {}
+    model r1 {}
 
     /** default *w_1 */
     @write
     @zz(0x10)
     @base(0x6, 0x23, 0x67)
-    model w_1 {}
+    model w1 {}
   }
-  @condition(Globals.Parameter_level.status, "'User_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'User_Level'")
   namespace Hk_param.userlevel {
     /** Raumschutztemperatur 03-000 */
     @inherit(r)
     @ext(0x80, 0, 0xa)
-    model Temp_raumschutz {
+    model HcRoomProtectionTemp {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -2993,14 +2993,14 @@ namespace _15 {
     /** Raumschutztemperatur 03-000 */
     @inherit(w)
     @ext(0x80, 0, 0xa)
-    model Set_Temp_raumschutz {
+    model HcRoomProtectionTempWrite {
       temp: temp10;
     }
 
     /** Auslegungs Vorlauftemperatur 03-013 */
     @inherit(r)
     @ext(0x81, 0, 0xa)
-    model Temp_vl_auslegung {
+    model HcDesignFlowTemp {
       parameters: parameter_temp2;
       temp: temp2;
     }
@@ -3008,14 +3008,14 @@ namespace _15 {
     /** Auslegungs Vorlauftemperatur 03-013 */
     @inherit(w)
     @ext(0x81, 0, 0xa)
-    model Set_Temp_vl_auslegung {
+    model HcDesignFlowTempWrite {
       temp: temp2;
     }
 
     /** Heizgrenze Normalbetrieb 03-021 */
     @inherit(r)
     @ext(0x82, 0, 0xa)
-    model Temp_heizgrenze_normal {
+    model HcComfortHeatingThresholdTemp {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3023,14 +3023,14 @@ namespace _15 {
     /** Heizgrenze Normalbetrieb 03-021 */
     @inherit(w)
     @ext(0x82, 0, 0xa)
-    model Set_Temp_heizgrenze_normal {
+    model HcComfortHeatingThresholdTempWrite {
       temp: temp10;
     }
 
     /** Betriebswahl Heizung 03-050 */
     @inherit(r)
     @ext(0x83, 0, 0xa)
-    model HK_Betriebswahl {
+    model HcOperatingMode {
       parameters: parameter1;
 
       @values(Values_status_25)
@@ -3040,7 +3040,7 @@ namespace _15 {
     /** Betriebswahl Heizung 03-050 */
     @inherit(w)
     @ext(0x83, 0, 0xa)
-    model Set_HK_Betriebswahl {
+    model HcOperatingModeWrite {
       @values(Values_status_25)
       status: status;
     }
@@ -3048,7 +3048,7 @@ namespace _15 {
     /** Normal Raumtemperatur Heizbetrieb 03-051 */
     @inherit(r)
     @ext(0x84, 0, 0xa)
-    model Temp_raum_normal {
+    model HcComfortRoomTempSetpoint {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3056,14 +3056,14 @@ namespace _15 {
     /** Normal Raumtemperatur Heizbetrieb 03-051 */
     @inherit(w)
     @ext(0x84, 0, 0xa)
-    model Set_Temp_raum_normal {
+    model HcComfortRoomTempSetpointWrite {
       temp: temp10;
     }
 
     /** Spar Raumtemperatur Heizbetrieb 03-053 */
     @inherit(r)
     @ext(0x85, 0, 0xa)
-    model Temp_raum_spar {
+    model HcReducedRoomTempSetpoint {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3071,14 +3071,14 @@ namespace _15 {
     /** Spar Raumtemperatur Heizbetrieb 03-053 */
     @inherit(w)
     @ext(0x85, 0, 0xa)
-    model Set_Temp_raum_spar {
+    model HcReducedRoomTempSetpointWrite {
       temp: temp10;
     }
 
     /** Behaglichkeit 03-058 */
     @inherit(r)
     @ext(0x86, 0, 0xa)
-    model Temp_behaglichkeit {
+    model HcComfortAdjustment {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3086,29 +3086,29 @@ namespace _15 {
     /** Behaglichkeit 03-058 */
     @inherit(w)
     @ext(0x86, 0, 0xa)
-    model Set_Temp_behaglichkeit {
+    model HcComfortAdjustmentWrite {
       temp: temp10;
     }
 
     /** Solltemperatur Handbetrieb 07-009 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x80, 0, 0xa)
-    model Temp_soll_handbetrieb {
+    model HcManualTempSetpoint {
       parameters: parameter_temp10;
       temp: temp10;
     }
 
     /** Solltemperatur Handbetrieb 07-009 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x80, 0, 0xa)
-    model Set_Temp_soll_handbetrieb {
+    model HcManualTempSetpointWrite {
       temp: temp10;
     }
 
     /** Applikationstyp Heizkreis 07-076 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x81, 0, 0xa)
-    model HK_Applikationstyp {
+    model HcApplicationType {
       parameters: parameter1;
 
       @values(Values_status_26)
@@ -3116,19 +3116,19 @@ namespace _15 {
     }
 
     /** Applikationstyp Heizkreis 07-076 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x81, 0, 0xa)
-    model Set_HK_Applikationstyp {
+    model HcApplicationTypeWrite {
       @values(Values_status_26)
       status: status;
     }
   }
-  @condition(Globals.Parameter_level.status, "'Expert_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'Expert_Level'")
   namespace Hk_param.expertlevel {
     /** Raumschutztemperatur 03-000 */
     @inherit(r)
     @ext(0x80, 0, 0xa)
-    model Temp_raumschutz {
+    model HcRoomProtectionTemp {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3136,14 +3136,14 @@ namespace _15 {
     /** Raumschutztemperatur 03-000 */
     @inherit(w)
     @ext(0x80, 0, 0xa)
-    model Set_Temp_raumschutz {
+    model HcRoomProtectionTempWrite {
       temp: temp10;
     }
 
     /** Fusspunkt Vorlauftemperatur Heizbetrieb 03-001 */
     @inherit(r)
     @ext(0x81, 0, 0xa)
-    model Temp_vl_fusspunkt {
+    model HcTempFlowBasePoint {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3151,14 +3151,14 @@ namespace _15 {
     /** Fusspunkt Vorlauftemperatur Heizbetrieb 03-001 */
     @inherit(w)
     @ext(0x81, 0, 0xa)
-    model Set_Temp_vl_fusspunkt {
+    model HcTempFlowBasePointWrite {
       temp: temp10;
     }
 
     /** Heizgrenze Sparbetrieb 03-002 */
     @inherit(r)
     @ext(0x82, 0, 0xa)
-    model Heizgrenze_spar {
+    model HcHeatingThresholdTempReduced {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3166,14 +3166,14 @@ namespace _15 {
     /** Heizgrenze Sparbetrieb 03-002 */
     @inherit(w)
     @ext(0x82, 0, 0xa)
-    model Set_Heizgrenze_spar {
+    model HcHeatingThresholdTempReducedWrite {
       temp: temp10;
     }
 
     /** Startoptimierung Vorhaltezeit 03-006 */
     @inherit(r)
     @ext(0x83, 0, 0xa)
-    model Startopt_vorhaltezeit {
+    model HcStartOptimizationHoldTime {
       parameters: parameter1;
 
       @unit("min")
@@ -3184,7 +3184,7 @@ namespace _15 {
     /** Startoptimierung Vorhaltezeit 03-006 */
     @inherit(w)
     @ext(0x83, 0, 0xa)
-    model Set_Startopt_vorhaltezeit {
+    model HcStartOptimizationHoldTimeWrite {
       @unit("min")
       @divisor(10)
       time: UIN;
@@ -3193,7 +3193,7 @@ namespace _15 {
     /** Raumtemperatur Kompensation 03-007 */
     @inherit(r)
     @ext(0x84, 0, 0xa)
-    model Temp_raum_kompensation {
+    model HcTempRoomCompensation {
       parameters: parameter1;
 
       @divisor(10)
@@ -3203,7 +3203,7 @@ namespace _15 {
     /** Raumtemperatur Kompensation 03-007 */
     @inherit(w)
     @ext(0x84, 0, 0xa)
-    model Set_Temp_raum_kompensation {
+    model HcTempRoomCompensationWrite {
       @divisor(10)
       status: UIN;
     }
@@ -3211,7 +3211,7 @@ namespace _15 {
     /** Auslegungs Aussentemperatur Heizbetrieb 03-012 */
     @inherit(r)
     @ext(0x85, 0, 0xa)
-    model Temp_aussen_auslegung {
+    model HcTempOutsideTempDesign {
       parameters: parameter_temp1_1b;
       temp: temp1_1b;
     }
@@ -3219,14 +3219,14 @@ namespace _15 {
     /** Auslegungs Aussentemperatur Heizbetrieb 03-012 */
     @inherit(w)
     @ext(0x85, 0, 0xa)
-    model Set_Temp_aussen_auslegung {
+    model HcTempOutsideTempDesignWrite {
       temp: temp1_1b;
     }
 
     /** Auslegungs Vorlauftemperatur 03-013 */
     @inherit(r)
     @ext(0x86, 0, 0xa)
-    model Temp_vl_auslegung {
+    model HcDesignFlowTemp {
       parameters: parameter_temp2;
       temp: temp2;
     }
@@ -3234,14 +3234,14 @@ namespace _15 {
     /** Auslegungs Vorlauftemperatur 03-013 */
     @inherit(w)
     @ext(0x86, 0, 0xa)
-    model Set_Temp_vl_auslegung {
+    model HcDesignFlowTempWrite {
       temp: temp2;
     }
 
     /** Zeitkonstante für Aussentemperatur Mittelwertberechnung 03-020 */
     @inherit(r)
     @ext(0x87, 0, 0xa)
-    model Konst_at_mittelwert {
+    model HcTimeConstantOutsideTempAverage {
       parameters: parameter1;
 
       @unit("h")
@@ -3251,7 +3251,7 @@ namespace _15 {
     /** Zeitkonstante für Aussentemperatur Mittelwertberechnung 03-020 */
     @inherit(w)
     @ext(0x87, 0, 0xa)
-    model Set_Konst_at_mittelwert {
+    model HcTimeConstantOutsideTempAverageWrite {
       @unit("h")
       time: UIN;
     }
@@ -3259,7 +3259,7 @@ namespace _15 {
     /** Heizgrenze Normalbetrieb 03-021 */
     @inherit(r)
     @ext(0x88, 0, 0xa)
-    model Temp_heizgrenze_normal {
+    model HcComfortHeatingThresholdTemp {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3267,14 +3267,14 @@ namespace _15 {
     /** Heizgrenze Normalbetrieb 03-021 */
     @inherit(w)
     @ext(0x88, 0, 0xa)
-    model Set_Temp_heizgrenze_normal {
+    model HcComfortHeatingThresholdTempWrite {
       temp: temp10;
     }
 
     /** Frostgrenze Aussentemperatur 03-023 */
     @inherit(r)
     @ext(0x89, 0, 0xa)
-    model Temp_aussen_frostgrenze {
+    model HcTempOutsideTempFrostThresholdTemp {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3282,14 +3282,14 @@ namespace _15 {
     /** Frostgrenze Aussentemperatur 03-023 */
     @inherit(w)
     @ext(0x89, 0, 0xa)
-    model Set_Temp_aussen_frostgrenze {
+    model HcTempOutsideTempFrostThresholdTempWrite {
       temp: temp10;
     }
 
     /** Zeitkonstante für R 03-024 */
     @inherit(r)
     @ext(0x8a, 0, 0xa)
-    model Zeitkonstante {
+    model HcTimeConstant {
       parameters: parameter1;
       time: UIN;
     }
@@ -3297,14 +3297,14 @@ namespace _15 {
     /** Zeitkonstante für R 03-024 */
     @inherit(w)
     @ext(0x8a, 0, 0xa)
-    model Set_Zeitkonstante {
+    model HcTimeConstantWrite {
       time: UIN;
     }
 
     /** Abweichung forciert Heizen 03-025 */
     @inherit(r)
     @ext(0x8b, 0, 0xa)
-    model Abweichung_heizen_ein {
+    model HcDeviationHeatingOn {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3312,14 +3312,14 @@ namespace _15 {
     /** Abweichung forciert Heizen 03-025 */
     @inherit(w)
     @ext(0x8b, 0, 0xa)
-    model Set_Abweichung_heizen_ein {
+    model HcDeviationHeatingOnWrite {
       temp: temp10;
     }
 
     /** Abweichung Heizen aus 03-026 */
     @inherit(r)
     @ext(0x8c, 0, 0xa)
-    model Abweichung_heizen_aus {
+    model HcDeviationHeatingOff {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3327,14 +3327,14 @@ namespace _15 {
     /** Abweichung Heizen aus 03-026 */
     @inherit(w)
     @ext(0x8c, 0, 0xa)
-    model Set_Abweichung_heizen_aus {
+    model HcDeviationHeatingOffWrite {
       temp: temp10;
     }
 
     /** Nachstellzeit Raumregler 03-030 */
     @inherit(r)
     @ext(0x8d, 0, 0xa)
-    model Nachstellzeit_raumregler {
+    model HcIntegralTimeRoomController {
       parameters: parameter1;
 
       @divisor(10)
@@ -3344,7 +3344,7 @@ namespace _15 {
     /** Nachstellzeit Raumregler 03-030 */
     @inherit(w)
     @ext(0x8d, 0, 0xa)
-    model Set_Nachstellzeit_raumregler {
+    model HcIntegralTimeRoomControllerWrite {
       @divisor(10)
       time: UIN;
     }
@@ -3352,7 +3352,7 @@ namespace _15 {
     /** Betriebswahl Heizung 03-050 */
     @inherit(r)
     @ext(0x8e, 0, 0xa)
-    model HK_Betriebswahl {
+    model HcOperatingMode {
       parameters: parameter1;
 
       @values(Values_status_27)
@@ -3362,7 +3362,7 @@ namespace _15 {
     /** Betriebswahl Heizung 03-050 */
     @inherit(w)
     @ext(0x8e, 0, 0xa)
-    model Set_HK_Betriebswahl {
+    model HcOperatingModeWrite {
       @values(Values_status_27)
       status: status;
     }
@@ -3370,7 +3370,7 @@ namespace _15 {
     /** Normal Raumtemperatur Heizbetrieb 03-051 */
     @inherit(r)
     @ext(0x8f, 0, 0xa)
-    model Temp_raum_normal {
+    model HcComfortRoomTempSetpoint {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3378,14 +3378,14 @@ namespace _15 {
     /** Normal Raumtemperatur Heizbetrieb 03-051 */
     @inherit(w)
     @ext(0x8f, 0, 0xa)
-    model Set_Temp_raum_normal {
+    model HcComfortRoomTempSetpointWrite {
       temp: temp10;
     }
 
     /** Spar Raumtemperatur Heizbetrieb 03-053 */
     @inherit(r)
     @ext(0x90, 0, 0xa)
-    model Temp_raum_spar {
+    model HcReducedRoomTempSetpoint {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3393,14 +3393,14 @@ namespace _15 {
     /** Spar Raumtemperatur Heizbetrieb 03-053 */
     @inherit(w)
     @ext(0x90, 0, 0xa)
-    model Set_Temp_raum_spar {
+    model HcReducedRoomTempSetpointWrite {
       temp: temp10;
     }
 
     /** Behaglichkeit 03-058 */
     @inherit(r)
     @ext(0x91, 0, 0xa)
-    model Temp_behaglichkeit {
+    model HcComfortAdjustment {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3408,14 +3408,14 @@ namespace _15 {
     /** Behaglichkeit 03-058 */
     @inherit(w)
     @ext(0x91, 0, 0xa)
-    model Set_Temp_behaglichkeit {
+    model HcComfortAdjustmentWrite {
       temp: temp10;
     }
 
     /** Fernbedienung vorh 03-091 */
     @inherit(r)
     @ext(0x92, 0, 0xa)
-    model Fernbedienung {
+    model HcRemoteControl {
       parameters: parameter1;
       status: status;
     }
@@ -3423,14 +3423,14 @@ namespace _15 {
     /** Fernbedienung vorh 03-091 */
     @inherit(w)
     @ext(0x92, 0, 0xa)
-    model Set_Fernbedienung {
+    model HcRemoteControlWrite {
       status: status;
     }
 
     /** Ferien Zonenzuordnung 03-092 */
     @inherit(r)
     @ext(0x93, 0, 0xa)
-    model HK_Zone_ferien {
+    model HcZoneHoliday {
       parameters: parameter1;
 
       /** Nutzung des lokalen Ferienprogramms oder das eines bestehenden Heizkreises */
@@ -3440,7 +3440,7 @@ namespace _15 {
     /** Ferien Zonenzuordnung 03-092 */
     @inherit(w)
     @ext(0x93, 0, 0xa)
-    model Set_HK_Zone_ferien {
+    model HcZoneHolidayWrite {
       /** Nutzung des lokalen Ferienprogramms oder das eines bestehenden Heizkreises */
       status: status;
     }
@@ -3448,7 +3448,7 @@ namespace _15 {
     /** Timer Zonenzuordnung 03-093 */
     @inherit(r)
     @ext(0x94, 0, 0xa)
-    model HK_Zone_timer {
+    model HcZoneTimer {
       parameters: parameter1;
 
       /** Nutzung der lokalen Timerfunktionen oder die eines bestehenden Heizkreises */
@@ -3458,7 +3458,7 @@ namespace _15 {
     /** Timer Zonenzuordnung 03-093 */
     @inherit(w)
     @ext(0x94, 0, 0xa)
-    model Set_HK_Zone_timer {
+    model HcZoneTimerWrite {
       /** Nutzung der lokalen Timerfunktionen oder die eines bestehenden Heizkreises */
       status: status;
     }
@@ -3466,7 +3466,7 @@ namespace _15 {
     /** Betriebswahl Zonenzuordnung 03-094 */
     @inherit(r)
     @ext(0x95, 0, 0xa)
-    model HK_Zone_betriebswahl {
+    model HcZoneOperatingMode {
       parameters: parameter1;
 
       /** Nutzung der lokalen Betriebswahl oder die eines bestehenden Heizkreises */
@@ -3476,7 +3476,7 @@ namespace _15 {
     /** Betriebswahl Zonenzuordnung 03-094 */
     @inherit(w)
     @ext(0x95, 0, 0xa)
-    model Set_HK_Zone_betriebswahl {
+    model HcZoneOperatingModeWrite {
       /** Nutzung der lokalen Betriebswahl oder die eines bestehenden Heizkreises */
       status: status;
     }
@@ -3484,7 +3484,7 @@ namespace _15 {
     /** Zeitprogramm Zonenzuordnung 03-095 */
     @inherit(r)
     @ext(0x96, 0, 0xa)
-    model HK_Zone_zeitprogramm {
+    model HcZoneProgram {
       parameters: parameter1;
 
       /** Nutzung des lokalen Zeitprogramms oder das eines bestehenden Heizkreises */
@@ -3494,7 +3494,7 @@ namespace _15 {
     /** Zeitprogramm Zonenzuordnung 03-095 */
     @inherit(w)
     @ext(0x96, 0, 0xa)
-    model Set_HK_Zone_zeitprogramm {
+    model HcZoneProgramWrite {
       /** Nutzung des lokalen Zeitprogramms oder das eines bestehenden Heizkreises */
       status: status;
     }
@@ -3502,7 +3502,7 @@ namespace _15 {
     /** Temperatur Zonenzuordnung 03-096 */
     @inherit(r)
     @ext(0x97, 0, 0xa)
-    model Zone_temperatur {
+    model HcZoneTemp {
       parameters: parameter1;
       status: status;
     }
@@ -3510,14 +3510,14 @@ namespace _15 {
     /** Temperatur Zonenzuordnung 03-096 */
     @inherit(w)
     @ext(0x97, 0, 0xa)
-    model Set_Zone_temperatur {
+    model HcZoneTempWrite {
       status: status;
     }
 
     /** Minimale Anlagetemperatur 03-110 */
     @inherit(r)
     @ext(0x98, 0, 0xa)
-    model Temp_anlage_min {
+    model HcTempSystemFlowMin {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3525,14 +3525,14 @@ namespace _15 {
     /** Minimale Anlagetemperatur 03-110 */
     @inherit(w)
     @ext(0x98, 0, 0xa)
-    model Set_Temp_anlage_min {
+    model HcTempSystemFlowMinWrite {
       temp: temp10;
     }
 
     /** Abschaltdifferenz Anlagetemperatur 03-111 */
     @inherit(r)
     @ext(0x99, 0, 0xa)
-    model HK_Abschaltdifferenz {
+    model HcShutdownDifferentialTemp {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -3540,59 +3540,59 @@ namespace _15 {
     /** Abschaltdifferenz Anlagetemperatur 03-111 */
     @inherit(w)
     @ext(0x99, 0, 0xa)
-    model Set_HK_Abschaltdifferenz {
+    model HcShutdownDifferentialTempWrite {
       temp: temp10;
     }
 
     /** Proportionalbereich Mischerregelung 07-000 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x80, 0, 0xa)
-    model Proportionalbereich_mischer {
+    model HcProportionalBandMixer {
       parameters: parameter_temp10;
       temp: temp10;
     }
 
     /** Proportionalbereich Mischerregelung 07-000 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x80, 0, 0xa)
-    model Set_Proportionalbereich_mischer {
+    model HcProportionalBandMixerWrite {
       temp: temp10;
     }
 
     /** Wärmeerzeuger Überhöhung Vorlaufsollwert 07-001 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x81, 0, 0xa)
-    model We_vl_soll_ueberhoehung {
+    model HcEhpFlowSetpointOffset {
       parameters: parameter_temp10;
       temp: temp10;
     }
 
     /** Wärmeerzeuger Überhöhung Vorlaufsollwert 07-001 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x81, 0, 0xa)
-    model Set_We_vl_soll_ueberhoehung {
+    model HcEhpFlowSetpointOffsetWrite {
       temp: temp10;
     }
 
     /** Minimale Vorlauftemperatur 07-002 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x82, 0, 0xa)
-    model Temp_vl_min {
+    model HcTempFlowMin {
       parameters: parameter_temp10;
       temp: temp10;
     }
 
     /** Minimale Vorlauftemperatur 07-002 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x82, 0, 0xa)
-    model Set_Temp_vl_min {
+    model HcTempFlowMinWrite {
       temp: temp10;
     }
 
     /** Pumpennachlauf Heizkreis 07-003 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x83, 0, 0xa)
-    model HK_Nachlauf_pumpe {
+    model HcOverrunTimePump {
       parameters: parameter_temp10;
 
       @unit("min")
@@ -3601,18 +3601,18 @@ namespace _15 {
     }
 
     /** Pumpennachlauf Heizkreis 07-003 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x83, 0, 0xa)
-    model Set_HK_Nachlauf_pumpe {
+    model HcOverrunTimePumpWrite {
       @unit("min")
       @divisor(10)
       time: UIN;
     }
 
     /** Heizkreistyp 07-005 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x84, 0, 0xa)
-    model Heizkreistyp {
+    model HcType {
       parameters: parameter1;
 
       @values(Values_status_28)
@@ -3620,62 +3620,62 @@ namespace _15 {
     }
 
     /** Heizkreistyp 07-005 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x84, 0, 0xa)
-    model Set_Heizkreistyp {
+    model HcTypeWrite {
       @values(Values_status_28)
       status: status;
     }
 
     /** Vorlauf Maximaltemperatur 07-008 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x85, 0, 0xa)
-    model Temp_vl_max {
+    model HcTempFlowMax {
       parameters: parameter_temp10;
       temp: temp10;
     }
 
     /** Vorlauf Maximaltemperatur 07-008 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x85, 0, 0xa)
-    model Set_Temp_vl_max {
+    model HcTempFlowMaxWrite {
       temp: temp10;
     }
 
     /** Solltemperatur Handbetrieb 07-009 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x86, 0, 0xa)
-    model Temp_soll_handbetrieb {
+    model HcTempSetpointManual {
       parameters: parameter_temp10;
       temp: temp10;
     }
 
     /** Solltemperatur Handbetrieb 07-009 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x86, 0, 0xa)
-    model Set_Temp_soll_handbetrieb {
+    model HcTempSetpointManualWrite {
       temp: temp10;
     }
 
     /** Heizkreisüberhöhung Niedertarif 07-031 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x87, 0, 0xa)
-    model Ueberhoehung_hk_niedertarif {
+    model HcOffsetLowTarif {
       parameters: parameter_temp2;
       temp: temp2;
     }
 
     /** Heizkreisüberhöhung Niedertarif 07-031 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x87, 0, 0xa)
-    model Set_Ueberhoehung_hk_niedertarif {
+    model HcOffsetLowTarifWrite {
       temp: temp2;
     }
 
     /** Energiezwangzahl 07-034 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x88, 0, 0xa)
-    model HK_Energiezwangzahl {
+    model HcForcedEnergyNumber {
       parameters: parameter1;
 
       @values(Values_status_29)
@@ -3683,17 +3683,17 @@ namespace _15 {
     }
 
     /** Energiezwangzahl 07-034 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x88, 0, 0xa)
-    model Set_HK_Energiezwangzahl {
+    model HcForcedEnergyNumberWrite {
       @values(Values_status_29)
       status: status;
     }
 
     /** Mischer Neutralzone 07-041 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x89, 0, 0xa)
-    model Mischer_neutralzone {
+    model HcMixerNeutralZone {
       parameters: parameter_temp10;
 
       @unit("K")
@@ -3702,18 +3702,18 @@ namespace _15 {
     }
 
     /** Mischer Neutralzone 07-041 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x89, 0, 0xa)
-    model Set_Mischer_neutralzone {
+    model HcMixerNeutralZoneWrite {
       @unit("K")
       @divisor(10)
       temp: UIN;
     }
 
     /** Applikationstyp Heizkreis 07-076 */
-    @inherit(r_1)
+    @inherit(r1)
     @ext(0x8a, 0, 0xa)
-    model HK_Applikationstyp {
+    model HcApplicationType {
       parameters: parameter1;
 
       @values(Values_status_30)
@@ -3721,9 +3721,9 @@ namespace _15 {
     }
 
     /** Applikationstyp Heizkreis 07-076 */
-    @inherit(w_1)
+    @inherit(w1)
     @ext(0x8a, 0, 0xa)
-    model Set_HK_Applikationstyp {
+    model HcApplicationTypeWrite {
       @values(Values_status_30)
       status: status;
     }
@@ -3737,7 +3737,7 @@ namespace _15 {
     /** Heizkreispumpe 01-020 */
     @inherit(r)
     @ext(0x80, 0, 0xa)
-    model Hk_pumpe {
+    model HcPump {
       parameters: parameter1;
 
       /** Stellgröße für eine Heizkreispumpe */
@@ -3747,7 +3747,7 @@ namespace _15 {
     /** Mischer 01-021 */
     @inherit(r)
     @ext(0x81, 0, 0xa)
-    model Hk_mischer {
+    model HcMixer {
       parameters: parameter_range;
 
       /** Stellgröße für ein Heizkreis Mischventil */
@@ -3764,7 +3764,7 @@ namespace _15 {
     /** Heizleistung Heizbetrieb 02-040 */
     @inherit(r)
     @ext(0x2, 0xa8, 0, 0x50)
-    model Leistung_heizung_ping {
+    model HmHeatingOutputDisplay {
       parameters: parameter1_10;
 
       /** Berechnete Gesamtheizleistung */
@@ -3776,7 +3776,7 @@ namespace _15 {
     /** Heizleistung Warmwasser 02-041 */
     @inherit(r)
     @ext(0x2, 0xa9, 0, 0x50)
-    model Leistung_ww_ping {
+    model HmHwOutputDisplay {
       parameters: parameter1_10;
 
       /** Berechnete Gesamt Warmwasser Ladeleistung */
@@ -3788,7 +3788,7 @@ namespace _15 {
     /** Status Wärmemanager 02-054 */
     @inherit(r)
     @ext(0x2, 0xb6, 0, 0x50)
-    model WM_Status_ping {
+    model HmOperatingStateDisplay {
       parameters: parameter1;
 
       /** Zustand Wärmemanagerfunktion */
@@ -3799,7 +3799,7 @@ namespace _15 {
     /** Uhrzeit 02-072 */
     @inherit(r)
     @ext(0x2, 0xc8, 0, 0x50)
-    model WW_Time {
+    model HmTime {
       parameters: parameter_time;
 
       /** Uhrzeit */
@@ -3809,7 +3809,7 @@ namespace _15 {
     /** Wochentag 02-073 */
     @inherit(r)
     @ext(0x2, 0xc9, 0, 0x50)
-    model WW_Wd {
+    model HmWeekday {
       parameters: parameter_wd;
 
       /** Wochentag */
@@ -3819,7 +3819,7 @@ namespace _15 {
     /** Anlagetemperatur 00-107 (00-096) */
     @inherit(r)
     @ext(0, 0xe, 0, 0x50)
-    model WM_Anlage_temp_ping {
+    model HmSystemFlowTempDisplay {
       parameters: parameter_temp10;
 
       /** Anlagen Vorlauftemperatur für Heizbetrieb (Verteiler) */
@@ -3835,7 +3835,7 @@ namespace _15 {
     /** Puffertemperatur oben 00-015 */
     @inherit(r)
     @ext(0x80, 0, 0x10)
-    model Puffer_temp_oben {
+    model HmBufferTempTop {
       parameters: parameter_temp10;
 
       /** Obere Heizungspuffer Temperatur (Einschalttemperatur) */
@@ -3845,7 +3845,7 @@ namespace _15 {
     /** Anlage Sollwert Warmwasserbetrieb 01-097 */
     @inherit(r)
     @ext(0x81, 0, 0x10)
-    model Anlage_solltemp_ww {
+    model HmHwSystemFlowSolltemp {
       parameters: parameter_temp1;
 
       /** Berechneter Sollwert für die Anlagenvorlauftemperatur Warmwasser Ladebetrieb */
@@ -3855,7 +3855,7 @@ namespace _15 {
     /** Anlagetemperatur 00-107 */
     @inherit(r)
     @ext(0x82, 0, 0x10)
-    model WM_Anlage_temp {
+    model HmSystemFlowTemp {
       parameters: parameter_temp10;
 
       /** Anlagen Vorlauftemperatur für Heizbetrieb (Verteiler) */
@@ -3865,7 +3865,7 @@ namespace _15 {
     /** Anlagetemperatur Sollwert 01-107 */
     @inherit(r)
     @ext(0x83, 0, 0x10)
-    model Anlage_solltemp_heizung {
+    model HmSystemFlowTempSetpoint {
       parameters: parameter_temp10;
 
       /** Berechneter Sollwert für die Anlagenvorlauftemperatur Heizbetrieb */
@@ -3875,7 +3875,7 @@ namespace _15 {
     /** Heizleistung Heizbetrieb 02-040 */
     @inherit(r)
     @ext(0x84, 0, 0x10)
-    model Leistung_heizung {
+    model HmHeatingOutput {
       parameters: parameter1_10;
 
       /** Berechnete Gesamtheizleistung */
@@ -3887,7 +3887,7 @@ namespace _15 {
     /** Heizleistung Warmwasser 02-041 */
     @inherit(r)
     @ext(0x85, 0, 0x10)
-    model Leistung_ww {
+    model HmHwOutput {
       parameters: parameter1_10;
 
       /** Berechnete Gesamt Warmwasser Ladeleistung */
@@ -3899,7 +3899,7 @@ namespace _15 {
     /** Status Wärmemanager 02-054 */
     @inherit(r)
     @ext(0x86, 0, 0x10)
-    model WM_Status {
+    model HmOperatingState {
       parameters: parameter1;
 
       /** Zustand Wärmemanagerfunktion */
@@ -3919,12 +3919,12 @@ namespace _15 {
     @base(0x6, 0x23, 0x66)
     model w {}
   }
-  @condition(Globals.Parameter_level.status, "'User_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'User_Level'")
   namespace Wm_param.userlevel {
     /** Betriebswahl Wärmemanager 06-015 */
     @inherit(r)
     @ext(0x80, 0, 0)
-    model WM_Betriebswahl {
+    model HmOperatingMode {
       parameters: parameter1;
 
       @values(Values_status_33)
@@ -3934,7 +3934,7 @@ namespace _15 {
     /** Betriebswahl Wärmemanager 06-015 */
     @inherit(w)
     @ext(0x80, 0, 0)
-    model Set_WM_Betriebswahl {
+    model HmOperatingModeWrite {
       @values(Values_status_33)
       status: status;
     }
@@ -3942,7 +3942,7 @@ namespace _15 {
     /** Solltemperatur Handbetrieb 06-016 */
     @inherit(r)
     @ext(0x80, 0, 0x10)
-    model WM_Hand_temp_soll {
+    model HmManualModeTempSetpoint {
       parameters: parameter1;
 
       /** Sollwert für die Wärmeerzeuger Vorlauftemperatur im Handbetrieb. */
@@ -3952,7 +3952,7 @@ namespace _15 {
     /** Solltemperatur Handbetrieb 06-016 */
     @inherit(w)
     @ext(0x80, 0, 0x10)
-    model Set_WM_Hand_temp_soll {
+    model HmManualModeTempSetpointWrite {
       /** Sollwert für die Wärmeerzeuger Vorlauftemperatur im Handbetrieb. */
       temp: temp10;
     }
@@ -3960,7 +3960,7 @@ namespace _15 {
     /** Applikationstyp Wärmemanager 06-076 */
     @inherit(r)
     @ext(0x80, 0, 0x20)
-    model WM_Applikationstyp {
+    model HmApplicationType {
       parameters: parameter1;
 
       /** Damit kann ein vordefinierter Parametersatz für die Wärmepumpenfunktion geladen werden */
@@ -3971,18 +3971,18 @@ namespace _15 {
     /** Applikationstyp Wärmemanager 06-076 */
     @inherit(w)
     @ext(0x80, 0, 0x20)
-    model Set_WM_Applikationstyp {
+    model HmApplicationTypeWrite {
       /** Damit kann ein vordefinierter Parametersatz für die Wärmepumpenfunktion geladen werden */
       @values(Values_status_34)
       status: status;
     }
   }
-  @condition(Globals.Parameter_level.status, "'Expert_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'Expert_Level'")
   namespace Wm_param.expertlevel {
     /** Maximale Warmwasser Ladeleistung System 06-000 */
     @inherit(r)
     @ext(0x80, 0, 0x10)
-    model Max_ww_ladeleistung {
+    model HmHwMaxOutput {
       parameters: parameter1_10;
 
       @unit("kW")
@@ -3993,7 +3993,7 @@ namespace _15 {
     /** Maximale Warmwasser Ladeleistung System 06-000 */
     @inherit(w)
     @ext(0x80, 0, 0x10)
-    model Set_Max_ww_ladeleistung {
+    model HmHwMaxOutputWrite {
       @unit("kW")
       @divisor(10)
       temp: SIN;
@@ -4002,7 +4002,7 @@ namespace _15 {
     /** Maximale Heizleistung System 06-001 */
     @inherit(r)
     @ext(0x81, 0, 0x10)
-    model Max_heizleistung {
+    model HmMaxOutput {
       parameters: parameter1_10;
 
       @unit("kW")
@@ -4013,7 +4013,7 @@ namespace _15 {
     /** Maximale Heizleistung System 06-001 */
     @inherit(w)
     @ext(0x81, 0, 0x10)
-    model Set_Max_heizleistung {
+    model HmMaxOutputWrite {
       @unit("kW")
       @divisor(10)
       temp: SIN;
@@ -4022,7 +4022,7 @@ namespace _15 {
     /** Maximale Kühlleistung System 06-002 */
     @inherit(r)
     @ext(0x82, 0, 0x10)
-    model Max_kuehlleistung {
+    model HmMaxCooling {
       parameters: parameter1_10;
 
       @unit("kW")
@@ -4033,7 +4033,7 @@ namespace _15 {
     /** Maximale Kühlleistung System 06-002 */
     @inherit(w)
     @ext(0x82, 0, 0x10)
-    model Set_Max_kuehlleistung {
+    model HmMaxCoolingWrite {
       @unit("kW")
       @divisor(10)
       temp: SIN;
@@ -4042,7 +4042,7 @@ namespace _15 {
     /** Pufferfunktion 06-003 */
     @inherit(r)
     @ext(0x83, 0, 0x10)
-    model Pufferfunktion {
+    model HmBuffer {
       parameters: parameter1;
 
       @values(Values_status_35)
@@ -4052,7 +4052,7 @@ namespace _15 {
     /** Pufferfunktion 06-003 */
     @inherit(w)
     @ext(0x83, 0, 0x10)
-    model Set_Pufferfunktion {
+    model HmBufferWrite {
       @values(Values_status_35)
       status: status;
     }
@@ -4060,7 +4060,7 @@ namespace _15 {
     /** Überhöhung Wärmeerzeuger Sollwert 06-004 */
     @inherit(r)
     @ext(0x84, 0, 0x10)
-    model Ueberhoehung_we_sollwert {
+    model HmEhpOffsetSetpoint {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -4068,14 +4068,14 @@ namespace _15 {
     /** Überhöhung Wärmeerzeuger Sollwert 06-004 */
     @inherit(w)
     @ext(0x84, 0, 0x10)
-    model Set_Ueberhoehung_we_sollwert {
+    model HmEhpOffsetSetpointWrite {
       temp: temp10;
     }
 
     /** Sollwertoffset Anschaltfühler Puffer mitte 06-005 */
     @inherit(r)
     @ext(0x85, 0, 0x10)
-    model Sollwertoffset_fuehler_puffer_mitte {
+    model HmSetpointSensorBufferMitte {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -4083,14 +4083,14 @@ namespace _15 {
     /** Sollwertoffset Anschaltfühler Puffer mitte 06-005 */
     @inherit(w)
     @ext(0x85, 0, 0x10)
-    model Set_Sollwertoffset_fuehler_puffer_mitte {
+    model HmSetpointSensorBufferMitteWrite {
       temp: temp10;
     }
 
     /** Puffer Minimaltemperatur 06-006 */
     @inherit(r)
     @ext(0x86, 0, 0x10)
-    model Temp_puffer_min {
+    model HmTempBufferMin {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -4098,14 +4098,14 @@ namespace _15 {
     /** Puffer Minimaltemperatur 06-006 */
     @inherit(w)
     @ext(0x86, 0, 0x10)
-    model Set_Temp_puffer_min {
+    model HmTempBufferMinWrite {
       temp: temp10;
     }
 
     /** Proportionalbereich Wärmemanager 06-010 */
     @inherit(r)
     @ext(0x87, 0, 0x10)
-    model Proportionalbereich_wm {
+    model HmProportionalBand {
       parameters: parameter1_10;
 
       @unit("K")
@@ -4116,7 +4116,7 @@ namespace _15 {
     /** Proportionalbereich Wärmemanager 06-010 */
     @inherit(w)
     @ext(0x87, 0, 0x10)
-    model Set_Proportionalbereich_wm {
+    model HmProportionalBandWrite {
       @unit("K")
       @divisor(10)
       temp: SIN;
@@ -4125,7 +4125,7 @@ namespace _15 {
     /** Nachstellzeit Wärmemanager 06-011 */
     @inherit(r)
     @ext(0x88, 0, 0x10)
-    model Nachstellzeit_wm {
+    model HmIntegralTime {
       parameters: parameter1_10;
 
       @unit("min")
@@ -4136,7 +4136,7 @@ namespace _15 {
     /** Nachstellzeit Wärmemanager 06-011 */
     @inherit(w)
     @ext(0x88, 0, 0x10)
-    model Set_Nachstellzeit_wm {
+    model HmIntegralTimeWrite {
       @unit("min")
       @divisor(10)
       time: SIN;
@@ -4145,7 +4145,7 @@ namespace _15 {
     /** Vorhaltezeit Wärmemanager 06-012 */
     @inherit(r)
     @ext(0x89, 0, 0x10)
-    model Vorhaltezeit_wm {
+    model HmHoldTime {
       parameters: parameter1_10;
 
       @unit("min")
@@ -4156,7 +4156,7 @@ namespace _15 {
     /** Vorhaltezeit Wärmemanager 06-012 */
     @inherit(w)
     @ext(0x89, 0, 0x10)
-    model Set_Vorhaltezeit_wm {
+    model HmHoldTimeWrite {
       @unit("min")
       @divisor(10)
       time: SIN;
@@ -4165,7 +4165,7 @@ namespace _15 {
     /** Reduktion Anlagevorlauf Sollwert bei Störung 06-013 */
     @inherit(r)
     @ext(0x8a, 0, 0x10)
-    model Reduktion_anlagevl_sollwert_stoerung {
+    model HmReductionSystemFlowSetpointError {
       parameters: parameter1_10;
 
       @unit("K")
@@ -4176,7 +4176,7 @@ namespace _15 {
     /** Reduktion Anlagevorlauf Sollwert bei Störung 06-013 */
     @inherit(w)
     @ext(0x8a, 0, 0x10)
-    model Set_Reduktion_anlagevl_sollwert_stoerung {
+    model HmReductionSystemFlowSetpointErrorWrite {
       @unit("K")
       @divisor(10)
       temp: SIN;
@@ -4185,7 +4185,7 @@ namespace _15 {
     /** Betriebswahl Wärmemanager 06-015 */
     @inherit(r)
     @ext(0x8b, 0, 0x10)
-    model WM_Betriebswahl {
+    model HmOperatingMode {
       parameters: parameter1;
 
       @values(Values_status_36)
@@ -4195,7 +4195,7 @@ namespace _15 {
     /** Betriebswahl Wärmemanager 06-015 */
     @inherit(w)
     @ext(0x8b, 0, 0x10)
-    model Set_WM_Betriebswahl {
+    model HmOperatingModeWrite {
       @values(Values_status_36)
       status: status;
     }
@@ -4203,7 +4203,7 @@ namespace _15 {
     /** Solltemperatur Handbetrieb 06-016 */
     @inherit(r)
     @ext(0x8c, 0, 0x10)
-    model WM_Hand_temp_soll {
+    model HmManualModeTempSetpoint {
       parameters: parameter1;
       temp: temp10;
     }
@@ -4211,14 +4211,14 @@ namespace _15 {
     /** Solltemperatur Handbetrieb 06-016 */
     @inherit(w)
     @ext(0x8c, 0, 0x10)
-    model Set_WM_Hand_temp_soll {
+    model HmManualModeTempSetpointWrite {
       temp: temp10;
     }
 
     /** Maximale Sollwertsteigung Heizbetrieb 06-017 */
     @inherit(r)
     @ext(0x8d, 0, 0x10)
-    model Max_sollwertsteigung_hz {
+    model HmMaxSetpointHeating {
       parameters: parameter1_10;
 
       @unit("K/min")
@@ -4229,7 +4229,7 @@ namespace _15 {
     /** Maximale Sollwertsteigung Heizbetrieb 06-017 */
     @inherit(w)
     @ext(0x8d, 0, 0x10)
-    model Set_Max_sollwertsteigung_hz {
+    model HmMaxSetpointHeatingWrite {
       @unit("K/min")
       @divisor(10)
       value: SIN;
@@ -4238,7 +4238,7 @@ namespace _15 {
     /** Maximale Sollwertsteigung Warmwasserbetrieb 06-018 */
     @inherit(r)
     @ext(0x8e, 0, 0x10)
-    model Max_sollwertsteigung_ww {
+    model HmHwMaxSetpoint {
       parameters: parameter1_10;
 
       @unit("K/min")
@@ -4249,7 +4249,7 @@ namespace _15 {
     /** Maximale Sollwertsteigung Warmwasserbetrieb 06-018 */
     @inherit(w)
     @ext(0x8e, 0, 0x10)
-    model Set_Max_sollwertsteigung_ww {
+    model HmHwMaxSetpointWrite {
       @unit("K/min")
       @divisor(10)
       value: SIN;
@@ -4258,7 +4258,7 @@ namespace _15 {
     /** Sequenzwechselzeit 06-020 */
     @inherit(r)
     @ext(0x8f, 0, 0x10)
-    model Sequenzwechselzeit {
+    model HmSequenceChangeTime {
       parameters: parameter1;
 
       @values(Values_status_37)
@@ -4268,7 +4268,7 @@ namespace _15 {
     /** Sequenzwechselzeit 06-020 */
     @inherit(w)
     @ext(0x8f, 0, 0x10)
-    model Set_Sequenzwechselzeit {
+    model HmSequenceChangeTimeWrite {
       @values(Values_status_37)
       status: status;
     }
@@ -4276,7 +4276,7 @@ namespace _15 {
     /** Puffer Solltemperatur für Energiezwang 06-025 */
     @inherit(r)
     @ext(0x90, 0, 0x10)
-    model Temp_puffer_soll_ez {
+    model HmTempBufferSetpointEnergyConstraint {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -4284,14 +4284,14 @@ namespace _15 {
     /** Puffer Solltemperatur für Energiezwang 06-025 */
     @inherit(w)
     @ext(0x90, 0, 0x10)
-    model Set_Temp_puffer_soll_ez {
+    model HmTempBufferSetpointEnergyConstraintWrite {
       temp: temp10;
     }
 
     /** Puffer Maximaltemperatur 06-026 */
     @inherit(r)
     @ext(0x91, 0, 0x10)
-    model Temp_puffer_max {
+    model HmTempBufferMax {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -4299,14 +4299,14 @@ namespace _15 {
     /** Puffer Maximaltemperatur 06-026 */
     @inherit(w)
     @ext(0x91, 0, 0x10)
-    model Set_Temp_puffer_max {
+    model HmTempBufferMaxWrite {
       temp: temp10;
     }
 
     /** Puffer Solltemperatur bei Sonderfreigabe 06-027 */
     @inherit(r)
     @ext(0x92, 0, 0x10)
-    model Temp_puffer_soll_sonder {
+    model HmTempBufferSetpointSonder {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -4314,14 +4314,14 @@ namespace _15 {
     /** Puffer Solltemperatur bei Sonderfreigabe 06-027 */
     @inherit(w)
     @ext(0x92, 0, 0x10)
-    model Set_Temp_puffer_soll_sonder {
+    model HmTempBufferSetpointSonderWrite {
       temp: temp10;
     }
 
     /** Nachlaufzeit Sonderfreigabe 06-028 */
     @inherit(r)
     @ext(0x93, 0, 0x10)
-    model Nachlaufzeit_sonder {
+    model HmOverrunTimeSpecial {
       parameters: parameter1;
 
       @unit("h")
@@ -4331,7 +4331,7 @@ namespace _15 {
     /** Nachlaufzeit Sonderfreigabe 06-028 */
     @inherit(w)
     @ext(0x93, 0, 0x10)
-    model Set_Nachlaufzeit_sonder {
+    model HmOverrunTimeSpecialWrite {
       @unit("h")
       time: SIN;
     }
@@ -4339,7 +4339,7 @@ namespace _15 {
     /** Applikationstyp Wärmemanager 06-076 */
     @inherit(r)
     @ext(0x94, 0, 0x10)
-    model WM_Applikationstyp {
+    model HmApplicationType {
       parameters: parameter1;
 
       @values(Values_status_38)
@@ -4349,7 +4349,7 @@ namespace _15 {
     /** Applikationstyp Wärmemanager 06-076 */
     @inherit(w)
     @ext(0x94, 0, 0x10)
-    model Set_WM_Applikationstyp {
+    model HmApplicationTypeWrite {
       @values(Values_status_38)
       status: status;
     }
@@ -4357,7 +4357,7 @@ namespace _15 {
     /** Warmwasser Maximaltemperatur Solarladung 08-059 */
     @inherit(r)
     @ext(0x95, 0, 0x10)
-    model Temp_max_ww_solar {
+    model HmHwTempMaxSolar {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -4365,14 +4365,14 @@ namespace _15 {
     /** Warmwasser Maximaltemperatur Solarladung 08-059 */
     @inherit(w)
     @ext(0x95, 0, 0x10)
-    model Set_Temp_max_ww_solar {
+    model HmHwTempMaxSolarWrite {
       temp: temp10;
     }
 
     /** Sollwertreduktion bei Solar aktiv 08-072 */
     @inherit(r)
     @ext(0x96, 0, 0x10)
-    model Sollwertreduktion_solar {
+    model HmSetpointSolarOffset {
       parameters: parameter1;
 
       @unit("K")
@@ -4382,7 +4382,7 @@ namespace _15 {
     /** Sollwertreduktion bei Solar aktiv 08-072 */
     @inherit(w)
     @ext(0x96, 0, 0x10)
-    model Set_Sollwertreduktion_solar {
+    model HmSetpointSolarWriteOffset {
       @unit("K")
       temp: SIN;
     }
@@ -4390,7 +4390,7 @@ namespace _15 {
     /** Solarleistung Sollwertreduktion 08-073 */
     @inherit(r)
     @ext(0x97, 0, 0x10)
-    model Solarleistung_sollwertreduktion {
+    model HmOutputSetpointOffset {
       parameters: parameter1_10;
 
       @unit("kW")
@@ -4401,7 +4401,7 @@ namespace _15 {
     /** Solarleistung Sollwertreduktion 08-073 */
     @inherit(w)
     @ext(0x97, 0, 0x10)
-    model Set_Solarleistung_sollwertreduktion {
+    model HmOutputSetpointWriteOffset {
       @unit("kW")
       @divisor(10)
       value: SIN;
@@ -4410,7 +4410,7 @@ namespace _15 {
     /** Warmwasser Minimaltemperatur bei Solar aktiv 08-079 */
     @inherit(r)
     @ext(0x98, 0, 0x10)
-    model Temp_min_ww_solar {
+    model HmHwTempMinSolar {
       parameters: parameter_temp10;
       temp: temp10;
     }
@@ -4418,7 +4418,7 @@ namespace _15 {
     /** Warmwasser Minimaltemperatur bei Solar aktiv 08-079 */
     @inherit(w)
     @ext(0x98, 0, 0x10)
-    model Set_Temp_min_ww_solar {
+    model HmHwTempMinSolarWrite {
       temp: temp10;
     }
   }
@@ -4428,12 +4428,12 @@ namespace _15 {
     @base(0x6, 0x21, 0x7b)
     model r {}
   }
-  @condition(Globals.Parameter_level.status, "'Expert_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'Expert_Level'")
   namespace Wm_relais.expertlevel {
     /** Umlenkventil Puffer 22-065 */
     @inherit(r)
     @ext(0x80, 0, 0x10)
-    model Umlenkventil_puffer {
+    model HmDiverterValveBuffer {
       parameters: parameter1;
 
       /** Stellgröße für eine Heizkreispumpe */
@@ -4449,7 +4449,7 @@ namespace _15 {
     /** Datum 02-070 */
     @inherit(r)
     @ext(0x2, 0xc6, 0, 0x40)
-    model Date {
+    model GlobalDate {
       parameters: parameter1;
 
       /** Zustand Wärmemanagerfunktion */
@@ -4459,7 +4459,7 @@ namespace _15 {
     /** Uhrzeit 02-072 */
     @inherit(r)
     @ext(0x2, 0xc8, 0, 0x40)
-    model GF_Time {
+    model GlobalTime {
       parameters: parameter_time;
 
       /** Uhrzeit */
@@ -4469,7 +4469,7 @@ namespace _15 {
     /** Wochentag 02-073 */
     @inherit(r)
     @ext(0x2, 0xc9, 0, 0x40)
-    model GF_Wd {
+    model GlobalWeekday {
       parameters: parameter_wd;
 
       /** Wochentag */
@@ -4485,7 +4485,7 @@ namespace _15 {
     /** Aussentemperatur 00-000 */
     @inherit(r)
     @ext(0x80, 0, 0)
-    model GF_At {
+    model GlobalOutsideTemp {
       parameters: parameter_temp10;
 
       /** Aussentemperatur */
@@ -4495,7 +4495,7 @@ namespace _15 {
     /** Warmwassertemperatur 00-004 */
     @inherit(r)
     @ext(0x81, 0, 0)
-    model GF_Ww_temp_ist {
+    model GlobalHwTempActual {
       parameters: parameter1;
 
       /** Obere Warmwasserspeichertemperatur */
@@ -4505,7 +4505,7 @@ namespace _15 {
     /** Vorlauftemperatur Wärmeerzeuger 00-007 */
     @inherit(r)
     @ext(0x82, 0, 0)
-    model WE_Vl_temp_ist_gf {
+    model GlobalEhpFlowTempActual {
       parameters: parameter_temp10;
 
       /** Wärmeerzeuger Vorlauftemperatur */
@@ -4515,7 +4515,7 @@ namespace _15 {
     /** Rücklauftemperatur Wärmeerzeuger 00-008 */
     @inherit(r)
     @ext(0x83, 0, 0)
-    model WE_Rl_temp_ist_gf {
+    model GlobalEhpReturnTempActual {
       parameters: parameter_temp10;
 
       /** Wärmeerzeuger Rücklauftemperatur */
@@ -4525,7 +4525,7 @@ namespace _15 {
     /** Wärmequelle Austrittstemperatur 00-070 */
     @inherit(r)
     @ext(0x84, 0, 0)
-    model WE_Wq_temp_out_gf {
+    model GlobalSourceTempOutlet {
       parameters: parameter_temp10;
 
       /** Wärmequellen Austrittstemperatur vom Verdampfer */
@@ -4535,7 +4535,7 @@ namespace _15 {
     /** Wärmequelle Eintrittstemperatur 00-071 */
     @inherit(r)
     @ext(0x85, 0, 0)
-    model WE_Wq_temp_in_gf {
+    model GlobalSourceTempInlet {
       parameters: parameter_temp10;
 
       /** Wärmequellen Eintrittstemperatur zum Verdampfer */
@@ -4545,7 +4545,7 @@ namespace _15 {
     /** Heissgastemperatur 00-072 */
     @inherit(r)
     @ext(0x86, 0, 0)
-    model Temp_hg_gf {
+    model GlobalHotGasTemp {
       parameters: parameter_temp10;
 
       /** Heissgastemperatur im Kältekreis */
@@ -4555,7 +4555,7 @@ namespace _15 {
     /** Anlagetemperatur 00-107 */
     @inherit(r)
     @ext(0x87, 0, 0)
-    model WE_Anlage_temp {
+    model GlobalSystemFlowTemp {
       parameters: parameter_temp10;
 
       /** Anlagen Vorlauftemperatur für Heizbetrieb (Verteiler) */
@@ -4565,7 +4565,7 @@ namespace _15 {
     /** Anlagetemperatur Sollwert 01-107 */
     @inherit(r)
     @ext(0x88, 0, 0)
-    model Anlage_solltemp_heizung_gf {
+    model GlobalSystemFlowTempSetpoint {
       parameters: parameter_temp10;
 
       /** Berechneter Sollwert für die Anlagenvorlauftemperatur Heizbetrieb */
@@ -4578,12 +4578,12 @@ namespace _15 {
     @base(0x6, 0x21, 0x64)
     model r {}
   }
-  @condition(Globals.Parameter_level.status, "'User_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'User_Level'")
   namespace Gf_param.userlevel {
     /** Fühlerkonfiguration speichern 04-000 */
     @inherit(r)
     @ext(0x80, 0, 0)
-    model Fuehler_speichern {
+    model GlobalSensorSave {
       parameters: parameter1;
       status: status;
     }
@@ -4591,7 +4591,7 @@ namespace _15 {
     /** Kommandos 04-045 */
     @inherit(r)
     @ext(0x81, 0, 0)
-    model Kommandos {
+    model GlobalCommands {
       parameters: parameter1;
       status: status;
     }
@@ -4599,7 +4599,7 @@ namespace _15 {
     /** Austrocknungsprogramm Modus 04-060 */
     @inherit(r)
     @ext(0x82, 0, 0)
-    model Modus_austrocknung {
+    model GlobalModeDrying {
       parameters: parameter1;
       status: status;
     }
@@ -4607,7 +4607,7 @@ namespace _15 {
     /** Applikationstyp Globalfunktion 04-076 */
     @inherit(r)
     @ext(0x83, 0, 0)
-    model GF_Applikationstyp {
+    model GlobalApplicationType {
       parameters: parameter1;
       status: status;
     }
@@ -4615,7 +4615,7 @@ namespace _15 {
     /** Hydraulikapplikation 04-077 */
     @inherit(r)
     @ext(0x84, 0, 0)
-    model Hydraulikapplikation {
+    model GlobalHydraulicApplication {
       parameters: parameter1;
       status: status;
     }
@@ -4623,7 +4623,7 @@ namespace _15 {
     /** SW Version 04-092 */
     @inherit(r)
     @ext(0x85, 0, 0)
-    model Version_sw {
+    model GlobalVersionSoftware {
       parameters: parameter1;
 
       @divisor(100)
@@ -4633,7 +4633,7 @@ namespace _15 {
     /** HW Version 04-093 */
     @inherit(r)
     @ext(0x86, 0, 0)
-    model Version_hw {
+    model GlobalVersionHardware {
       parameters: parameter1;
 
       @divisor(100)
@@ -4643,17 +4643,17 @@ namespace _15 {
     /** SW ID Nr. 04-094 */
     @inherit(r)
     @ext(0x87, 0, 0)
-    model Idnr_sw {
+    model GlobalIdNumberSoftware {
       parameters: parameter1;
       value: UIN;
     }
   }
-  @condition(Globals.Parameter_level.status, "'Expert_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'Expert_Level'")
   namespace Gf_param.expertlevel {
     /** Fühlerkonfiguration speichern 04-000 */
     @inherit(r)
     @ext(0x80, 0, 0)
-    model Fuehler_speichern {
+    model GlobalSensorSave {
       parameters: parameter1;
       status: status;
     }
@@ -4661,47 +4661,47 @@ namespace _15 {
     /** Sollwerteingang Funktionszuordnung 04-002 */
     @inherit(r)
     @ext(0x81, 0, 0)
-    model Zuordn_sollwert_in {}
+    model GlobalAssignmentSetpointInlet {}
 
     /** eBus Unit Nummer 04-020 */
     @inherit(r)
     @ext(0x82, 0, 0)
-    model Unit_nr {}
+    model GlobalUnitNumber {}
 
     /** Multifunktionsausgang MFA 1 04-030 */
     @inherit(r)
     @ext(0x83, 0, 0)
-    model Mfa1 {}
+    model GlobalMultiFunctionOutput1 {}
 
     /** Multifunktionsausgang MFA 2 04-031 */
     @inherit(r)
     @ext(0x84, 0, 0)
-    model Mfa2 {}
+    model GlobalMultiFunctionOutput2 {}
 
     /** Sollwertausgang Funktionszuordnung 04-037 */
     @inherit(r)
     @ext(0x85, 0, 0)
-    model Zuordn_sollwert_out {}
+    model GlobalAssignmentSetpointOutlet {}
 
     /** Minimalwert DC Ausgang 1 04-038 */
     @inherit(r)
     @ext(0x86, 0, 0)
-    model Min_dc1 {}
+    model GlobalMinDcOutput1 {}
 
     /** Maximalwert DC Ausgang 1 04-039 */
     @inherit(r)
     @ext(0x87, 0, 0)
-    model Max_dc1 {}
+    model GlobalMaxDcOutput1 {}
 
     /** Service Passwort 04-040 */
     @inherit(r)
     @ext(0x88, 0, 0)
-    model Service_passwort {}
+    model GlobalServicePassword {}
 
     /** Kommandos 04-045 */
     @inherit(r)
     @ext(0x89, 0, 0)
-    model Kommandos {
+    model GlobalCommands {
       parameters: parameter1;
       status: status;
     }
@@ -4709,7 +4709,7 @@ namespace _15 {
     /** Austrocknungsprogramm Modus 04-060 */
     @inherit(r)
     @ext(0x8a, 0, 0)
-    model Modus_austrocknung {
+    model GlobalModeDrying {
       parameters: parameter1;
       status: status;
     }
@@ -4717,27 +4717,27 @@ namespace _15 {
     /** Vorlaufsollwertsteigung Aufheizphase 04-061 */
     @inherit(r)
     @ext(0x8b, 0, 0)
-    model Vl_sw_steigung_aufheizen {}
+    model GlobalFlowSetpointSlopeHeatUpPhase {}
 
     /** Vorlaufsollwertabfall Abkühlphase 04-062 */
     @inherit(r)
     @ext(0x8c, 0, 0)
-    model Vl_sw_abfall_kuehlen {}
+    model GlobalFlowSetpointDropCooling {}
 
     /** Vorlaufsollwert Beharrungsphase 04-063 */
     @inherit(r)
     @ext(0x8d, 0, 0)
-    model Vl_sw_beharrung {}
+    model GlobalFlowSetpointHoldPhase {}
 
     /** Dauer Beharrungsphase 04-064 */
     @inherit(r)
     @ext(0x8e, 0, 0)
-    model Dauer_beharrung {}
+    model GlobalDurationHoldPhase {}
 
     /** Applikationstyp Globalfunktion 04-076 */
     @inherit(r)
     @ext(0x8f, 0, 0)
-    model GF_Applikationstyp {
+    model GlobalApplicationType {
       parameters: parameter1;
       status: status;
     }
@@ -4745,7 +4745,7 @@ namespace _15 {
     /** Hydraulikapplikation 04-077 */
     @inherit(r)
     @ext(0x90, 0, 0)
-    model Hydraulikapplikation {
+    model GlobalHydraulicApplication {
       parameters: parameter1;
       status: status;
     }
@@ -4753,7 +4753,7 @@ namespace _15 {
     /** SW Version 04-092 */
     @inherit(r)
     @ext(0x91, 0, 0)
-    model Version_sw {
+    model GlobalVersionSoftware {
       parameters: parameter1;
 
       @divisor(100)
@@ -4763,7 +4763,7 @@ namespace _15 {
     /** HW Version 04-093 */
     @inherit(r)
     @ext(0x92, 0, 0)
-    model Version_hw {
+    model GlobalVersionHardware {
       parameters: parameter1;
 
       @divisor(100)
@@ -4773,7 +4773,7 @@ namespace _15 {
     /** SW ID Nr. 04-094 */
     @inherit(r)
     @ext(0x93, 0, 0)
-    model Idnr_sw {
+    model GlobalIdNumberSoftware {
       parameters: parameter1;
       value: UIN;
     }
@@ -4781,27 +4781,27 @@ namespace _15 {
     /** Sollwertausgang Funktionszuordnung 2 04-107 */
     @inherit(r)
     @ext(0x94, 0, 0)
-    model Zuordn_sollwert_out2 {}
+    model GlobalAssignmentSetpointOut2 {}
 
     /** Minimalwert DC Ausgang 2 04-108 */
     @inherit(r)
     @ext(0x95, 0, 0)
-    model Min_dc2 {}
+    model GlobalMinDcOutput2 {}
 
     /** Maximalwert DC Ausgang 2 04-109 */
     @inherit(r)
     @ext(0x96, 0, 0)
-    model Max_dc2 {}
+    model GlobalMaxDcOutput2 {}
 
     /** Einheit Impulseingang 17-000 */
     @inherit(r)
     @ext(0x97, 0, 0)
-    model Einheit_impuls {}
+    model GlobalUnitPulseRate {}
 
     /** Impulsrate 17-001 */
     @inherit(r)
     @ext(0x98, 0, 0)
-    model Impulsrate {}
+    model GlobalPulseRate {}
   }
   namespace Gf_relais {
     /** default *r */
@@ -4809,24 +4809,24 @@ namespace _15 {
     @base(0x6, 0x21, 0x74)
     model r {}
   }
-  @condition(Globals.Parameter_level.status, "'User_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'User_Level'")
   namespace Gf_relais.userlevel {
     /** Sammelstörung 01-099 */
     @inherit(r)
     @ext(0x80, 0, 0)
-    model Sammelstoerung {
+    model GlobalCollectiveError {
       parameters: parameter1;
 
       /** Stellgröße für eine Heizkreispumpe */
       status: status;
     }
   }
-  @condition(Globals.Parameter_level.status, "'Expert_Level'")
+  @condition(Globals.GlobalAccessLevel.status, "'Expert_Level'")
   namespace Gf_relais.expertlevel {
     /** Fernleitungspumpe 01-063 */
     @inherit(r)
     @ext(0x80, 0, 0)
-    model Fernleitungspumpe {
+    model GlobalRemoteLinePump {
       parameters: parameter1;
 
       /** Stellgröße für eine Heizkreispumpe */
@@ -4836,7 +4836,7 @@ namespace _15 {
     /** Sammelstörung 01-099 */
     @inherit(r)
     @ext(0x81, 0, 0)
-    model Sammelstoerung {
+    model GlobalCollectiveError {
       parameters: parameter1;
 
       /** Stellgröße für eine Heizkreispumpe */
